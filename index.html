@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kazama Worksheet Builder</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <p class="app-label">小学校算数ワークシート作成ツール</p>
+      <h1>Kazama Worksheet Builder</h1>
+      <p>「比を簡単にする問題」を自動で作成します。</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="control-panel no-print">
+
+      <h2>問題の設定</h2>
+
+      <div class="form-grid">
+
+        <div class="form-item">
+          <label for="difficulty">難易度</label>
+
+          <select id="difficulty">
+            <option value="basic">基本</option>
+            <option value="standard" selected>標準</option>
+            <option value="advanced">発展</option>
+          </select>
+        </div>
+
+        <div class="form-item">
+          <label for="count">問題数</label>
+
+          <select id="count">
+            <option value="5">5問</option>
+            <option value="10" selected>10問</option>
+            <option value="15">15問</option>
+            <option value="20">20問</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="button-area">
+
+        <button type="button" onclick="makeWorksheet()">
+          問題を作成する
+        </button>
+
+        <button
+          type="button"
+          class="secondary-button"
+          onclick="window.print()"
+        >
+          印刷する
+        </button>
+
+      </div>
+
+    </section>
+
+    <section class="worksheet-section">
+
+      <section class="problem-page">
+
+        <div class="worksheet-heading">
+
+          <div>
+            <p class="worksheet-brand">Kazama Worksheet Builder</p>
+            <h2>比を簡単にする問題</h2>
+          </div>
+
+          <div class="student-info">
+            <span>名前</span>
+            <span class="name-line"></span>
+          </div>
+
+        </div>
+
+        <p class="instruction">
+          次の比を、最も簡単な整数の比にしましょう。
+        </p>
+
+        <div id="questions">
+          まだ問題はありません。
+        </div>
+
+      </section>
+
+      <section class="answer-page">
+
+        <div class="worksheet-heading">
+
+          <div>
+            <p class="worksheet-brand">Kazama Worksheet Builder</p>
+            <h2>解答・解説</h2>
+          </div>
+
+        </div>
+
+        <div class="answer-note">
+          2つの数を最大公約数で割ると、最も簡単な整数比になります。
+        </div>
+
+        <div id="answers">
+          まだ解答はありません。
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

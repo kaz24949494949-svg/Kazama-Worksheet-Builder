@@ -1,0 +1,29 @@
+.question-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:1.8em;
+    height:1.8em;
+    margin-right:.45em;
+    border:1.5px solid #173b67;
+    border-radius:999px;
+    color:#173b67;
+    font-family:Arial,"Yu Gothic",sans-serif;
+    font-size:.72em;
+    font-weight:700;
+    line-height:1;
+    vertical-align:middle;
+}
+
+#answers .question-number{
+    min-width:1.65em;
+    height:1.65em;
+    font-size:.75em;
+}
+
+@media print{
+    .question-number{
+        border-color:#000;
+        color:#000;
+    }
+}

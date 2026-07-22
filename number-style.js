@@ -27,7 +27,14 @@ function wrapLeadingNumber(element) {
 
 function styleQuestionNumbers() {
     document.querySelectorAll("#questions > p").forEach(wrapLeadingNumber);
+
+    // 「比を簡単にする」の解答番号
     document.querySelectorAll("#answers > p > b").forEach(wrapLeadingNumber);
+
+    // 「比の値」の解答番号は .ratio-value-answer 内の b 要素に入っています。
+    document
+        .querySelectorAll("#answers .ratio-value-answer > b")
+        .forEach(wrapLeadingNumber);
 }
 
 const worksheetNumberObserver = new MutationObserver(styleQuestionNumbers);

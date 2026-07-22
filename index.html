@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kazama Worksheet Builder</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ratio-value.css">
 </head>
 
 <body>
@@ -31,11 +32,11 @@
           <label for="worksheetType">教材</label>
           <select id="worksheetType">
             <option value="simplify-ratio">比を簡単にする</option>
-            <option value="ratio-value" disabled>比の値（準備中）</option>
+            <option value="ratio-value">比の値</option>
             <option value="equivalent-ratio" disabled>等しい比（準備中）</option>
             <option value="proportion" disabled>比例式（準備中）</option>
           </select>
-          <p class="field-note">今後、教材を順番に追加していきます。</p>
+          <p class="field-note">教材を選ぶと、説明と問題形式が自動で切り替わります。</p>
         </div>
 
         <div class="form-item">
@@ -56,7 +57,7 @@
 
       <div class="difficulty-guide" aria-live="polite">
         <strong id="difficultyTitle">標準</strong>
-        <span id="difficultyDescription">2・3・5を最大公約数とする問題を作成します。</span>
+        <span id="difficultyDescription"></span>
       </div>
 
       <div class="button-area">
@@ -74,7 +75,7 @@
         <div class="worksheet-heading">
           <div>
             <p class="worksheet-brand">Kazama Worksheet Builder</p>
-            <h2>比を簡単にする問題</h2>
+            <h2 id="problemTitle">比を簡単にする問題</h2>
           </div>
 
           <div class="student-info">
@@ -88,7 +89,7 @@
           <span id="worksheetCount">問題数：10問</span>
         </div>
 
-        <p class="instruction">
+        <p id="instruction" class="instruction">
           次の比を、最も簡単な整数の比にしましょう。
         </p>
 
@@ -105,7 +106,7 @@
           </div>
         </div>
 
-        <div class="answer-note">
+        <div id="answerNote" class="answer-note">
           2つの数を最大公約数で割ると、最も簡単な整数比になります。
         </div>
 

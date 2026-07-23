@@ -12,7 +12,7 @@
 <body>
   <header class="app-header">
     <div class="header-inner">
-      <p class="app-label">小学校算数ワークシート作成ツール</p>
+      <p class="app-label">算数・英語ワークシート作成ツール</p>
       <h1>Kazama Worksheet Builder</h1>
       <p>授業ですぐ使える問題・解答・解説を自動で作成します。</p>
     </div>
@@ -25,17 +25,22 @@
           <p class="step-label">STEP 1</p>
           <h2>教材と問題の設定</h2>
         </div>
-        <span class="version-label">Version 2</span>
+        <span class="version-label">Version 3</span>
       </div>
 
       <div class="form-grid">
         <div class="form-item form-item-wide">
           <label for="worksheetType">教材</label>
           <select id="worksheetType">
-            <option value="simplify-ratio">比を簡単にする</option>
-            <option value="ratio-value">比の値</option>
-            <option value="equivalent-ratio">等しい比</option>
-            <option value="proportion" disabled>比例式（準備中）</option>
+            <optgroup label="英語">
+              <option value="make-adjective-order">物主構文 make（目的語＋形容詞）― 整序英作文</option>
+            </optgroup>
+            <optgroup label="算数">
+              <option value="simplify-ratio">比を簡単にする</option>
+              <option value="ratio-value">比の値</option>
+              <option value="equivalent-ratio">等しい比</option>
+              <option value="proportion" disabled>比例式（準備中）</option>
+            </optgroup>
           </select>
           <p class="field-note">教材を選ぶと、説明と問題形式が自動で切り替わります。</p>
         </div>
@@ -43,7 +48,7 @@
         <div class="form-item">
           <label for="difficulty">難易度</label>
           <select id="difficulty">
-            <option value="basic">基本</option>
+            <option value="basic">基礎</option>
             <option value="standard" selected>標準</option>
             <option value="advanced">発展</option>
           </select>
@@ -76,7 +81,7 @@
         <div class="worksheet-heading">
           <div>
             <p class="worksheet-brand">Kazama Worksheet Builder</p>
-            <h2 id="problemTitle">比を簡単にする問題</h2>
+            <h2 id="problemTitle">物主構文 make　整序英作文</h2>
           </div>
 
           <div class="student-info">
@@ -91,7 +96,7 @@
         </div>
 
         <p id="instruction" class="instruction">
-          次の比を、最も簡単な整数の比にしましょう。
+          日本語に合う英文になるように、（　）内の語句を並べ替えなさい。
         </p>
 
         <div id="questions">
@@ -108,7 +113,7 @@
         </div>
 
         <div id="answerNote" class="answer-note">
-          2つの数を最大公約数で割ると、最も簡単な整数比になります。
+          語順は「主語＋make／makes／made＋目的語＋形容詞」です。
         </div>
 
         <div id="answers">

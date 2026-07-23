@@ -1,0 +1,73 @@
+.english-questions{
+  columns:1 !important;
+  padding:18px 24px !important;
+}
+
+.english-question{
+  break-inside:avoid;
+  margin:0 0 20px;
+  padding-bottom:14px;
+  border-bottom:1px solid #d8dde3;
+}
+
+.question-japanese{
+  min-height:auto !important;
+  margin:0 0 5px !important;
+  font-size:17px !important;
+  font-weight:600 !important;
+}
+
+.question-words{
+  min-height:auto !important;
+  margin:0 0 9px !important;
+  padding-left:1.5em;
+  font-family:Arial,"Yu Gothic",sans-serif;
+  font-size:16px !important;
+  font-weight:normal !important;
+  letter-spacing:.01em;
+}
+
+.english-answer-line{
+  height:30px;
+  margin-left:1.5em;
+  border-bottom:1px solid #333;
+}
+
+.english-answers{
+  columns:1;
+}
+
+.english-answer-item{
+  break-inside:avoid;
+  margin:0 0 16px;
+  padding-bottom:10px;
+  border-bottom:1px solid #e0e4e8;
+}
+
+.english-answer-item p{
+  margin:0 0 3px !important;
+}
+
+@media print{
+  .english-questions{
+    columns:1 !important;
+    padding:12px 18px !important;
+  }
+
+  .english-question{
+    margin-bottom:15px;
+    padding-bottom:10px;
+  }
+
+  .question-japanese{
+    font-size:15px !important;
+  }
+
+  .question-words{
+    font-size:14px !important;
+  }
+
+  .english-answer-line{
+    height:24px;
+  }
+}

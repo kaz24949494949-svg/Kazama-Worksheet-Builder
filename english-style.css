@@ -33,6 +33,29 @@
   border-bottom:1px solid #333;
 }
 
+.rewrite-question{
+  padding-left:0;
+}
+
+.rewrite-source,
+.rewrite-prompt{
+  min-height:auto !important;
+  font-family:Arial,"Yu Gothic",sans-serif;
+  font-size:17px !important;
+  font-weight:normal !important;
+  line-height:1.75;
+}
+
+.rewrite-source{
+  margin:0 0 2px !important;
+  font-weight:600 !important;
+}
+
+.rewrite-prompt{
+  margin:0 0 2px 1.5em !important;
+  letter-spacing:.01em;
+}
+
 .english-answers{
   columns:1;
 }
@@ -59,7 +82,9 @@
     padding-bottom:10px;
   }
 
-  .question-japanese{
+  .question-japanese,
+  .rewrite-source,
+  .rewrite-prompt{
     font-size:15px !important;
   }
 

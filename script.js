@@ -62,17 +62,70 @@ const makeAdjectiveQuestions = {
   ]
 };
 
+const makeAdjectiveRewriteQuestions = {
+  basic: [
+    { source: "I was happy because of the news.", prompt: "The news（　　　）（　　　）（　　　）.", blanks: "made / me / happy", answer: "The news made me happy." },
+    { source: "She was sad because of the story.", prompt: "The story（　　　）（　　　）（　　　）.", blanks: "made / her / sad", answer: "The story made her sad." },
+    { source: "He was sleepy because of the music.", prompt: "The music（　　　）（　　　）（　　　）.", blanks: "made / him / sleepy", answer: "The music made him sleepy." },
+    { source: "They were tired because of the long walk.", prompt: "The long walk（　　　）（　　　）（　　　）.", blanks: "made / them / tired", answer: "The long walk made them tired." },
+    { source: "I was angry because of his words.", prompt: "His words（　　　）（　　　）（　　　）.", blanks: "made / me / angry", answer: "His words made me angry." },
+    { source: "We were excited because of the game.", prompt: "The game（　　　）（　　　）（　　　）.", blanks: "made / us / excited", answer: "The game made us excited." },
+    { source: "The room was warm because of the fire.", prompt: "The fire（　　　）（　　　）（　　　）.", blanks: "made / the room / warm", answer: "The fire made the room warm." },
+    { source: "The road was wet because of the rain.", prompt: "The rain（　　　）（　　　）（　　　）.", blanks: "made / the road / wet", answer: "The rain made the road wet." },
+    { source: "The baby was afraid because of the loud noise.", prompt: "The loud noise（　　　）（　　　）（　　　）.", blanks: "made / the baby / afraid", answer: "The loud noise made the baby afraid." },
+    { source: "Everyone was happy because of the joke.", prompt: "The joke（　　　）（　　　）（　　　）.", blanks: "made / everyone / happy", answer: "The joke made everyone happy." },
+    { source: "I was calm because of the music.", prompt: "The music（　　　）（　　　）（　　　）.", blanks: "made / me / calm", answer: "The music made me calm." },
+    { source: "The classroom was clean because of their work.", prompt: "Their work（　　　）（　　　）（　　　）.", blanks: "made / the classroom / clean", answer: "Their work made the classroom clean." }
+  ],
+  standard: [
+    { source: "He became strong because of the experience.", prompt: "The experience（　　　）（　　　）（　　　）.", blanks: "made / him / strong", answer: "The experience made him strong." },
+    { source: "She became nervous because of the news.", prompt: "The news（　　　）（　　　）（　　　）.", blanks: "made / her / nervous", answer: "The news made her nervous." },
+    { source: "We stayed healthy because of the daily exercise.", prompt: "The daily exercise（　　　）（　　　）（　　　）.", blanks: "made / us / healthy", answer: "The daily exercise made us healthy." },
+    { source: "The town became safe because of the new rule.", prompt: "The new rule（　　　）（　　　）（　　　）.", blanks: "made / the town / safe", answer: "The new rule made the town safe." },
+    { source: "The song became popular because of her beautiful voice.", prompt: "Her beautiful voice（　　　）（　　　）（　　　）.", blanks: "made / the song / popular", answer: "Her beautiful voice made the song popular." },
+    { source: "I became confused because of the difficult question.", prompt: "The difficult question（　　　）（　　　）（　　　）.", blanks: "made / me / confused", answer: "The difficult question made me confused." },
+    { source: "They became excited because of the good result.", prompt: "The good result（　　　）（　　　）（　　　）.", blanks: "made / them / excited", answer: "The good result made them excited." },
+    { source: "The room became beautiful because of the bright colors.", prompt: "The bright colors（　　　）（　　　）（　　　）.", blanks: "made / the room / beautiful", answer: "The bright colors made the room beautiful." },
+    { source: "She became busy because of the new work.", prompt: "The new work（　　　）（　　　）（　　　）.", blanks: "made / her / busy", answer: "The new work made her busy." },
+    { source: "He became famous because of the great success.", prompt: "The great success（　　　）（　　　）（　　　）.", blanks: "made / him / famous", answer: "The great success made him famous." },
+    { source: "I became relaxed because of her kind words.", prompt: "Her kind words（　　　）（　　　）（　　　）.", blanks: "made / me / relaxed", answer: "Her kind words made me relaxed." },
+    { source: "The children became active because of the outdoor activities.", prompt: "The outdoor activities（　　　）（　　　）（　　　）.", blanks: "made / the children / active", answer: "The outdoor activities made the children active." }
+  ],
+  advanced: [
+    { source: "He became more confident because of the experience.", prompt: "The experience（　　　）（　　　）（　　　）.", blanks: "made / him / more confident", answer: "The experience made him more confident." },
+    { source: "Our lives became more comfortable because of the new technology.", prompt: "The new technology（　　　）（　　　）（　　　）.", blanks: "made / our lives / more comfortable", answer: "The new technology made our lives more comfortable." },
+    { source: "The problem became easier because of the teacher's advice.", prompt: "The teacher's advice（　　　）（　　　）（　　　）.", blanks: "made / the problem / easier", answer: "The teacher's advice made the problem easier." },
+    { source: "She became stronger because of her family's support.", prompt: "Her family's support（　　　）（　　　）（　　　）.", blanks: "made / her / stronger", answer: "Her family's support made her stronger." },
+    { source: "The road became dangerous because of the accident.", prompt: "The accident（　　　）（　　　）（　　　）.", blanks: "made / the road / dangerous", answer: "The accident made the road dangerous." },
+    { source: "The town became world-famous because of the discovery.", prompt: "The discovery（　　　）（　　　）（　　　）.", blanks: "made / the town / world-famous", answer: "The discovery made the town world-famous." },
+    { source: "Our plan became possible because of the change.", prompt: "The change（　　　）（　　　）（　　　）.", blanks: "made / our plan / possible", answer: "The change made our plan possible." },
+    { source: "The situation became more complicated because of the long discussion.", prompt: "The long discussion（　　　）（　　　）（　　　）.", blanks: "made / the situation / more complicated", answer: "The long discussion made the situation more complicated." },
+    { source: "The idea became clearer because of his explanation.", prompt: "His explanation（　　　）（　　　）（　　　）.", blanks: "made / the idea / clearer", answer: "His explanation made the idea clearer." },
+    { source: "The whole team became more active because of the success.", prompt: "The success（　　　）（　　　）（　　　）.", blanks: "made / the whole team / more active", answer: "The success made the whole team more active." },
+    { source: "Many animals became weaker because of the environmental change.", prompt: "The environmental change（　　　）（　　　）（　　　）.", blanks: "made / many animals / weaker", answer: "The environmental change made many animals weaker." },
+    { source: "We felt more comfortable because of her calm attitude.", prompt: "Her calm attitude（　　　）（　　　）（　　　）.", blanks: "made / us / more comfortable", answer: "Her calm attitude made us more comfortable." }
+  ]
+};
+
 const worksheetDefinitions = {
   "make-adjective-order": {
-    label: "物主構文 make（整序英作文）",
-    title: "物主構文 make　整序英作文",
+    label: "物主構文 make（整序英作文）", title: "物主構文 make　整序英作文",
     instruction: "日本語に合う英文になるように、（　）内の語句を並べ替えなさい。文頭に来る語も小文字で示しています。",
-    answerNote: "語順は「主語＋make／makes／made＋目的語＋形容詞」です。目的語の後ろには、動詞の原形ではなく形容詞を置きます。",
-    type: "english-order",
+    answerNote: "語順は「主語＋make／makes／made＋目的語＋形容詞」です。目的語の後ろには、動詞の原形ではなく形容詞を置きます。", type: "english-order",
     difficulties: {
       basic: { label: "基礎", counts: [5, 10, 12], description: "基本的な主語・目的語・形容詞を使い、語順を定着させます。" },
       standard: { label: "標準", counts: [5, 10, 12], description: "語彙と主語を広げ、現在形と過去形の両方を扱います。" },
       advanced: { label: "発展", counts: [5, 10, 12], description: "抽象的な主語、比較級、長い語句を含む問題を扱います。" }
+    }
+  },
+  "make-adjective-rewrite": {
+    label: "物主構文 make（書き換え）", title: "物主構文 make　書き換え",
+    instruction: "次の2文がほぼ同じ意味になるように、空欄に適する語を書きなさい。",
+    answerNote: "原因を表す語句を主語にし、「made＋目的語＋形容詞」の順に書き換えます。", type: "english-rewrite",
+    difficulties: {
+      basic: { label: "基礎", counts: [5, 10, 12], description: "be動詞＋形容詞＋because ofの文を、madeを使う文へ書き換えます。" },
+      standard: { label: "標準", counts: [5, 10, 12], description: "became・stayedなどを含む文を、madeを使う文へ書き換えます。" },
+      advanced: { label: "発展", counts: [5, 10, 12], description: "比較級、抽象的な主語、長い語句を含む文を書き換えます。" }
     }
   },
   "simplify-ratio": {
@@ -137,6 +190,7 @@ function buildQuestionPool() {
   const type = worksheetTypeSelect.value;
   const settings = getCurrentSettings();
   if (type === "make-adjective-order") return makeAdjectiveQuestions[difficultySelect.value];
+  if (type === "make-adjective-rewrite") return makeAdjectiveRewriteQuestions[difficultySelect.value];
   if (type === "ratio-value") return buildRatioValuePool(settings);
   if (type === "equivalent-ratio") return buildEquivalentRatioPool(settings);
   return buildSimplifyRatioPool(settings);
@@ -162,23 +216,31 @@ function updateControls() {
   difficultyTitle.textContent = settings.label; difficultyDescription.textContent = settings.description;
   countGuide.textContent = `この設定では最大${settings.counts.at(-1)}問まで作成できます。`;
   questionsElement.textContent = "まだ問題はありません。"; answersElement.textContent = "まだ解答はありません。";
-  questionsElement.classList.toggle("english-questions", definition.type === "english-order");
-  answersElement.classList.toggle("english-answers", definition.type === "english-order");
+  const isEnglish = definition.type.startsWith("english-");
+  questionsElement.classList.toggle("english-questions", isEnglish);
+  answersElement.classList.toggle("english-answers", isEnglish);
   worksheetDifficulty.textContent = `難易度：${settings.label}`; worksheetCount.textContent = `問題数：${countSelect.value}問`;
   statusMessage.textContent = `${definition.label}・${settings.label}に切り替えました。`;
 }
 
-function appendEnglishQuestion(fragment, question, number) {
+function appendEnglishOrderQuestion(fragment, question, number) {
   const item = document.createElement("div"); item.className = "english-question";
   const japanese = document.createElement("p"); japanese.className = "question-japanese"; japanese.textContent = `${number}. ${question.ja}`;
   const wordBank = document.createElement("p"); wordBank.className = "question-words"; wordBank.textContent = `（ ${shuffle(question.words).join(" / ")} ）`;
   const answerLine = document.createElement("div"); answerLine.className = "english-answer-line";
   item.append(japanese, wordBank, answerLine); fragment.appendChild(item);
 }
-function appendEnglishAnswer(fragment, question, number) {
+function appendEnglishRewriteQuestion(fragment, question, number) {
+  const item = document.createElement("div"); item.className = "english-question rewrite-question";
+  const source = document.createElement("p"); source.className = "rewrite-source"; source.textContent = `${number}. ${question.source}`;
+  const prompt = document.createElement("p"); prompt.className = "rewrite-prompt"; prompt.textContent = question.prompt;
+  item.append(source, prompt); fragment.appendChild(item);
+}
+function appendEnglishAnswer(fragment, question, number, type) {
   const item = document.createElement("div"); item.className = "english-answer-item";
   const answer = document.createElement("p"); answer.innerHTML = `<b>${number}. ${question.answer}</b>`;
-  const structure = document.createElement("p"); structure.className = "answer-explanation"; structure.textContent = "主語＋make／makes／made＋目的語＋形容詞";
+  const structure = document.createElement("p"); structure.className = "answer-explanation";
+  structure.textContent = type === "english-rewrite" ? `空欄：${question.blanks}` : "主語＋make／makes／made＋目的語＋形容詞";
   item.append(answer, structure); fragment.appendChild(item);
 }
 function appendMathAnswer(answer, question, number, type) {
@@ -205,7 +267,12 @@ function makeWorksheet() {
   const selected = pool.slice(0, count); const questionFragment = document.createDocumentFragment(); const answerFragment = document.createDocumentFragment();
   selected.forEach((question, index) => {
     const number = index + 1;
-    if (definition.type === "english-order") { appendEnglishQuestion(questionFragment, question, number); appendEnglishAnswer(answerFragment, question, number); return; }
+    if (definition.type === "english-order") {
+      appendEnglishOrderQuestion(questionFragment, question, number); appendEnglishAnswer(answerFragment, question, number, definition.type); return;
+    }
+    if (definition.type === "english-rewrite") {
+      appendEnglishRewriteQuestion(questionFragment, question, number); appendEnglishAnswer(answerFragment, question, number, definition.type); return;
+    }
     const problem = document.createElement("p"); const answer = document.createElement("p");
     problem.textContent = worksheetTypeSelect.value === "equivalent-ratio" ? `${number}. ${equivalentRatioText(question)}` : `${number}. ${question.left}：${question.right}`;
     appendMathAnswer(answer, question, number, worksheetTypeSelect.value); questionFragment.appendChild(problem); answerFragment.appendChild(answer);

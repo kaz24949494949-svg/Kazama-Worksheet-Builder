@@ -110,32 +110,54 @@
 }
 
 @media print{
+  .multiple-page{
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+
   .multiple-page .worksheet-heading{
-    padding-bottom:7px;
+    padding-bottom:5px;
+  }
+
+  .multiple-page .worksheet-brand{
+    margin-bottom:0;
+    font-size:9px;
+    line-height:1.1;
   }
 
   .multiple-page .worksheet-heading h2{
-    font-size:18px;
+    font-size:17px;
+    line-height:1.2;
   }
 
   .multiple-page .instruction{
-    margin:8px 0;
-    padding:7px 10px;
-    font-size:12px;
+    margin:5px 0;
+    padding:5px 8px;
+    font-size:10px;
+    line-height:1.25;
   }
 
   #questions.multiple-questions{
     grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-auto-rows:198px;
     border:1px solid #222;
-    margin-top:6px;
+    margin-top:4px;
+    break-inside:avoid;
+    page-break-inside:avoid;
   }
 
   .multiple-question-item{
-    height:235px;
+    height:198px;
+    min-height:0;
+    overflow:hidden;
+    break-inside:avoid;
+    page-break-inside:avoid;
   }
 
   .multiple-question-number{
-    font-size:14px;
+    left:10px;
+    top:7px;
+    font-size:12px;
   }
 
   .multiple-answer-page .answer-note{

@@ -1,0 +1,67 @@
+@media print {
+  .answer-page .worksheet-heading {
+    padding-bottom: 6px;
+  }
+
+  .answer-page .worksheet-heading h2 {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .answer-page .worksheet-brand {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .answer-page .answer-note {
+    margin: 8px 0;
+    padding: 6px 10px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .answer-page #answers {
+    margin-top: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .answer-page #answers p {
+    margin: 0 0 5px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .answer-page .ratio-value-answer {
+    line-height: 1.2;
+    margin-bottom: 1px;
+  }
+
+  .answer-page .answer-explanation {
+    display: block;
+    margin-top: 0;
+    font-size: 9.5px;
+    line-height: 1.2;
+  }
+
+  .answer-page .question-number {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin-right: 5px;
+    font-size: 9px;
+    line-height: 16px;
+  }
+
+  .answer-page .fraction {
+    margin: 0 3px;
+  }
+
+  .answer-page .fraction-top,
+  .answer-page .fraction-bottom {
+    min-width: 18px;
+    padding: 0 2px;
+    line-height: 1.05;
+  }
+}

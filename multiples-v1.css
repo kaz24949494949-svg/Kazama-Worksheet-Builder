@@ -1,0 +1,155 @@
+.multiple-page .student-info,
+.multiple-page .worksheet-meta{
+  display:none;
+}
+
+.multiple-page .instruction{
+  margin:14px 0 10px;
+}
+
+#questions.multiple-questions{
+  columns:auto;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0;
+  padding:0;
+  overflow:hidden;
+}
+
+.multiple-question-item{
+  position:relative;
+  min-width:0;
+  height:270px;
+  border-right:1px dashed #9aa2aa;
+  border-bottom:1px dashed #9aa2aa;
+  break-inside:avoid;
+}
+
+.multiple-question-item:nth-child(2n){
+  border-right:none;
+}
+
+.multiple-question-item:nth-last-child(-n+2){
+  border-bottom:none;
+}
+
+.multiple-question-number{
+  position:absolute;
+  left:14px;
+  top:10px;
+  z-index:1;
+  font-size:18px;
+  font-weight:700;
+}
+
+.multiple-diagram{
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+.multiple-stroke,
+.multiple-arc{
+  fill:none;
+  stroke:#111;
+  stroke-linecap:square;
+}
+
+.multiple-arc{
+  stroke-width:1.8;
+}
+
+.multiple-label-circle{
+  fill:#fff;
+  stroke:#111;
+  stroke-width:2;
+}
+
+.multiple-circle-label,
+.multiple-unit-number,
+.multiple-row-label{
+  fill:#111;
+  font-family:"Yu Gothic","Meiryo",sans-serif;
+}
+
+.multiple-circle-label{
+  font-size:18px;
+}
+
+.multiple-unit-number{
+  font-size:15px;
+}
+
+.multiple-row-label{
+  font-size:24px;
+  font-weight:700;
+}
+
+#answers.multiple-answers{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px 44px;
+}
+
+.multiple-answer-item{
+  margin:0 !important;
+  padding:8px 12px;
+  border-bottom:1px solid #cfd5dc;
+  font-size:18px;
+  font-weight:700;
+}
+
+@media (max-width:650px){
+  #questions.multiple-questions{
+    grid-template-columns:1fr;
+  }
+
+  .multiple-question-item{
+    border-right:none;
+  }
+}
+
+@media print{
+  .multiple-page .worksheet-heading{
+    padding-bottom:7px;
+  }
+
+  .multiple-page .worksheet-heading h2{
+    font-size:18px;
+  }
+
+  .multiple-page .instruction{
+    margin:8px 0;
+    padding:7px 10px;
+    font-size:12px;
+  }
+
+  #questions.multiple-questions{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    border:1px solid #222;
+    margin-top:6px;
+  }
+
+  .multiple-question-item{
+    height:235px;
+  }
+
+  .multiple-question-number{
+    font-size:14px;
+  }
+
+  .multiple-answer-page .answer-note{
+    margin:10px 0;
+    padding:8px 10px;
+    font-size:12px;
+  }
+
+  #answers.multiple-answers{
+    margin-top:6px;
+    padding:14px;
+  }
+
+  .multiple-answer-item{
+    font-size:14px;
+  }
+}

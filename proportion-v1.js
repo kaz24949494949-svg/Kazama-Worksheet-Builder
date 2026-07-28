@@ -1,11 +1,10 @@
 "use strict";
 
-// 比例式（a：b＝c：x）の教材を既存アプリへ追加する。
 worksheetDefinitions.proportion = {
   label: "比例式",
   title: "比例式の□を求める問題",
   instruction: "比例式が成り立つように、□にあてはまる数を書きましょう。",
-  answerNote: "比例式では、外項の積と内項の積が等しくなります。まず、同じ数をかけた等しい比として考えましょう。",
+  answerNote: "比例式では、外項の積と内項の積が等しくなります。積を作ってから、□にかかっている数で割って求めます。",
   type: "math",
   difficulties: {
     basic: {
@@ -15,7 +14,7 @@ worksheetDefinitions.proportion = {
       factors: [2, 3, 4, 5],
       missingPositions: [3],
       counts: [5, 10, 15],
-      description: "右端の□を、同じ数をかける方法で求めます。"
+      description: "右端の□を、外項の積＝内項の積を使って求めます。"
     },
     standard: {
       label: "標準",
@@ -24,7 +23,7 @@ worksheetDefinitions.proportion = {
       factors: [2, 3, 4, 5, 6],
       missingPositions: [1, 2, 3],
       counts: [5, 10, 15, 20],
-      description: "内項・外項のいずれか1か所を求めます。"
+      description: "内項・外項のいずれか1か所を、積と割り算で求めます。"
     },
     advanced: {
       label: "発展",
@@ -33,7 +32,7 @@ worksheetDefinitions.proportion = {
       factors: [3, 4, 5, 6, 8, 10],
       missingPositions: [0, 1, 2, 3],
       counts: [5, 10, 15, 20],
-      description: "4つの位置のどこにでも□が入り、割り算を使う問題も含みます。"
+      description: "4つの位置のどこにでも□が入り、立式して求めます。"
     }
   }
 };
@@ -62,6 +61,24 @@ function proportionText(question, includeAnswer = false) {
   return `${values[0]}：${values[1]} ＝ ${values[2]}：${values[3]}`;
 }
 
+function buildProportionExplanation(question) {
+  const [a, b, c, d] = question.values;
+  const answer = question.answer;
+
+  switch (question.missingIndex) {
+    case 0:
+      return `外項の積＝内項の積より、□×${d}＝${b}×${c}。□＝（${b}×${c}）÷${d}＝${answer}。`;
+    case 1:
+      return `外項の積＝内項の積より、${a}×${d}＝□×${c}。□＝（${a}×${d}）÷${c}＝${answer}。`;
+    case 2:
+      return `外項の積＝内項の積より、${a}×${d}＝${b}×□。□＝（${a}×${d}）÷${b}＝${answer}。`;
+    case 3:
+      return `外項の積＝内項の積より、${a}×□＝${b}×${c}。□＝（${b}×${c}）÷${a}＝${answer}。`;
+    default:
+      return "外項の積と内項の積が等しくなることを使って求めます。";
+  }
+}
+
 function makeProportionWorksheet() {
   const definition = worksheetDefinitions.proportion;
   const settings = definition.difficulties[difficultySelect.value];
@@ -88,11 +105,7 @@ function makeProportionWorksheet() {
 
     const explanation = document.createElement("span");
     explanation.className = "answer-explanation";
-    const [a, b, c, d] = question.values;
-    const targetNames = ["左の前項", "左の後項", "右の前項", "右の後項"];
-    explanation.textContent =
-      `解説：${targetNames[question.missingIndex]}を求めます。` +
-      `外項の積と内項の積が等しいので、${a}×${d}＝${b}×${c}です。`;
+    explanation.textContent = `解説：${buildProportionExplanation(question)}`;
 
     answer.append(main, document.createElement("br"), explanation);
     answerFragment.appendChild(answer);
@@ -106,7 +119,6 @@ function makeProportionWorksheet() {
   document.querySelector(".problem-page").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-// 既存の作成処理より先に、比例式だけ専用処理で受け取る。
 createButton.addEventListener("click", (event) => {
   if (worksheetTypeSelect.value !== "proportion") return;
   event.stopImmediatePropagation();

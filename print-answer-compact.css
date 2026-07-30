@@ -16,6 +16,62 @@
     page-break-before: always;
   }
 
+  /* Keep English problem sheets on one A4 page even in mobile print previews. */
+  .problem-page .worksheet-heading {
+    padding-bottom: 7px;
+  }
+
+  .problem-page .worksheet-heading h2 {
+    font-size: 18px !important;
+    line-height: 1.15;
+  }
+
+  .problem-page .worksheet-brand {
+    font-size: 9px;
+    line-height: 1.15;
+  }
+
+  .problem-page .worksheet-meta {
+    gap: 10px;
+    margin-top: 5px;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .problem-page .instruction {
+    margin: 8px 0;
+    padding: 6px 9px;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .problem-page .english-questions {
+    padding: 8px 11px !important;
+  }
+
+  .problem-page .english-question {
+    margin-bottom: 8px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .problem-page .question-japanese,
+  .problem-page .rewrite-source,
+  .problem-page .rewrite-prompt {
+    margin-bottom: 2px !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+
+  .problem-page .question-words {
+    margin-bottom: 4px !important;
+    font-size: 9.5px !important;
+    line-height: 1.3 !important;
+  }
+
+  .problem-page .english-answer-line {
+    height: 15px !important;
+  }
+
   /* Compact only the answer page enough to fit 15 answers on one page. */
   .answer-page .worksheet-heading {
     padding-bottom: 7px;

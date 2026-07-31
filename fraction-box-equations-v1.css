@@ -1,0 +1,168 @@
+.fraction-box-page .worksheet-brand,
+.fraction-box-page .student-info,
+.fraction-box-page .worksheet-meta,
+.fraction-box-answer-page .worksheet-brand,
+.fraction-box-answer-page .student-info,
+.fraction-box-answer-page .worksheet-meta,
+.fraction-box-answer-page .answer-note{
+  display:none;
+}
+
+.fraction-box-page .worksheet-heading,
+.fraction-box-answer-page .worksheet-heading{
+  display:block;
+  border:0;
+  padding:0;
+}
+
+.fraction-box-page .worksheet-heading h2,
+.fraction-box-answer-page .worksheet-heading h2{
+  margin:0;
+  font-size:34px;
+  line-height:1.2;
+}
+
+.fraction-box-page .instruction{
+  margin:18px 0 0;
+  padding:0;
+  border:0;
+  background:transparent;
+  font-size:19px;
+  line-height:1.4;
+}
+
+.fraction-box-questions,
+.fraction-box-answers{
+  columns:auto !important;
+  display:grid;
+  grid-auto-flow:column;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:repeat(8,1fr);
+  column-gap:84px;
+  border:0 !important;
+  padding:0 !important;
+  margin-top:38px !important;
+}
+
+.fraction-box-questions{
+  min-height:1010px;
+}
+
+.fraction-box-answers{
+  min-height:1120px;
+  margin-top:44px !important;
+}
+
+.fraction-box-question-item,
+.fraction-box-answer-item{
+  min-width:0;
+  display:flex;
+  align-items:center;
+}
+
+.fraction-box-question-item{
+  gap:20px;
+  font-size:24px;
+  font-weight:500;
+}
+
+.fraction-box-number{
+  flex:0 0 38px;
+  font-size:31px;
+  line-height:1;
+}
+
+.fraction-box-equation{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+
+.fraction-box-response{
+  flex:0 0 auto;
+  margin-left:14px;
+  white-space:nowrap;
+}
+
+.fraction-box-answer-item{
+  gap:28px;
+}
+
+.fraction-box-answer-fraction{
+  display:inline-grid;
+  grid-template-rows:auto auto;
+  justify-items:center;
+  align-items:center;
+  min-width:52px;
+  font-size:29px;
+  line-height:1.12;
+}
+
+.fraction-box-answer-numerator{
+  width:100%;
+  padding:0 8px 4px;
+  border-bottom:2px solid #222;
+  text-align:center;
+}
+
+.fraction-box-answer-denominator{
+  padding-top:4px;
+}
+
+@media print{
+  .fraction-box-page,
+  .fraction-box-answer-page{
+    width:186mm;
+    height:273mm;
+    overflow:hidden;
+  }
+
+  .fraction-box-page .worksheet-heading h2,
+  .fraction-box-answer-page .worksheet-heading h2{
+    font-size:21pt;
+  }
+
+  .fraction-box-page .instruction{
+    margin-top:8mm;
+    font-size:13pt;
+  }
+
+  .fraction-box-questions,
+  .fraction-box-answers{
+    column-gap:16mm;
+  }
+
+  .fraction-box-questions{
+    height:224mm;
+    min-height:0;
+    margin-top:12mm !important;
+  }
+
+  .fraction-box-answers{
+    height:238mm;
+    min-height:0;
+    margin-top:11mm !important;
+  }
+
+  .fraction-box-question-item{
+    gap:4mm;
+    font-size:15pt;
+  }
+
+  .fraction-box-number{
+    flex-basis:9mm;
+    font-size:19pt;
+  }
+
+  .fraction-box-response{
+    margin-left:2mm;
+  }
+
+  .fraction-box-answer-item{
+    gap:6mm;
+  }
+
+  .fraction-box-answer-fraction{
+    min-width:12mm;
+    font-size:18pt;
+  }
+}

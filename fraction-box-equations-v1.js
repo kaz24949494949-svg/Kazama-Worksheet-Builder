@@ -19,6 +19,7 @@
   const statusMessage = document.getElementById("statusMessage");
   const problemPage = document.querySelector(".problem-page");
   const answerPage = document.querySelector(".answer-page");
+  const answerTitle = answerPage.querySelector(".worksheet-heading h2");
 
   const ITEMS = [
     { multiplier: 2, result: 1, numerator: 1, denominator: 2 },
@@ -73,6 +74,7 @@
   function updateControls() {
     setMode(true);
     countSelect.replaceChildren();
+
     const option = document.createElement("option");
     option.value = "16";
     option.textContent = "16問";
@@ -81,6 +83,7 @@
 
     difficultySelect.value = "basic";
     problemTitle.textContent = "問題";
+    answerTitle.textContent = "解答";
     instruction.textContent = "● 次の□に入る数を、分数で答えましょう。";
     answerNote.textContent = "";
     countGuide.textContent = "16問・2列×8段の固定レイアウトです。";
@@ -95,6 +98,7 @@
 
   function clearMode() {
     setMode(false);
+    if (answerTitle.textContent === "解答") answerTitle.textContent = "解答・解説";
   }
 
   function makeWorksheet() {
@@ -139,23 +143,25 @@
     problemPage.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  typeSelect.addEventListener("change", (event) => {
-    if (event.target.value === TYPE) {
+  document.addEventListener("change", (event) => {
+    if (event.target === typeSelect) {
+      if (isCurrent()) {
+        event.stopImmediatePropagation();
+        updateControls();
+      } else {
+        clearMode();
+      }
+      return;
+    }
+
+    if (event.target === difficultySelect && isCurrent()) {
       event.stopImmediatePropagation();
-      updateControls();
-    } else {
-      clearMode();
+      difficultySelect.value = "basic";
     }
   }, true);
 
-  difficultySelect.addEventListener("change", (event) => {
-    if (!isCurrent()) return;
-    event.stopImmediatePropagation();
-    difficultySelect.value = "basic";
-  }, true);
-
-  createButton.addEventListener("click", (event) => {
-    if (!isCurrent()) return;
+  document.addEventListener("click", (event) => {
+    if (event.target !== createButton || !isCurrent()) return;
     event.preventDefault();
     event.stopImmediatePropagation();
     makeWorksheet();

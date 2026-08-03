@@ -118,6 +118,55 @@
   padding-top:4px;
 }
 
+.integer-equals-fraction-item{
+  display:grid;
+  grid-template-columns:38px 174px auto;
+  column-gap:16px;
+  align-items:center;
+}
+
+.integer-equals-fraction-equation{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+}
+
+.integer-equals-fraction-expression{
+  display:inline-grid;
+  grid-template-rows:auto auto;
+  justify-items:center;
+  align-items:center;
+  min-width:58px;
+  font-size:30px;
+  line-height:1.05;
+}
+
+.integer-equals-fraction-numerator{
+  width:100%;
+  padding:0 10px 4px;
+  border-bottom:2px solid #222;
+  text-align:center;
+}
+
+.integer-equals-fraction-denominator{
+  padding-top:4px;
+}
+
+.integer-equals-fraction-response{
+  margin-left:0;
+}
+
+.integer-equals-fraction-answer-item{
+  gap:28px;
+}
+
+.integer-equals-fraction-answer-value{
+  min-width:58px;
+  font-size:29px;
+  text-align:center;
+}
+
 @media print{
   .fraction-box-page,
   .fraction-box-answer-page{
@@ -182,6 +231,29 @@
 
   .fraction-box-answer-fraction{
     min-width:12mm;
+    font-size:18pt;
+  }
+
+  .integer-equals-fraction-item{
+    grid-template-columns:9mm 42mm auto;
+    column-gap:3mm;
+  }
+
+  .integer-equals-fraction-equation{
+    gap:2mm;
+  }
+
+  .integer-equals-fraction-expression{
+    min-width:14mm;
+    font-size:18pt;
+  }
+
+  .integer-equals-fraction-response{
+    margin-left:0;
+  }
+
+  .integer-equals-fraction-answer-value{
+    min-width:14mm;
     font-size:18pt;
   }
 }

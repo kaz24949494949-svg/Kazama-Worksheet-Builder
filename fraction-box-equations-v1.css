@@ -83,6 +83,16 @@
   white-space:nowrap;
 }
 
+.integer-times-box-page .fraction-box-question-item{
+  display:grid;
+  grid-template-columns:38px 160px auto;
+  column-gap:20px;
+}
+
+.integer-times-box-page .fraction-box-response{
+  margin-left:0;
+}
+
 .fraction-box-answer-item{
   gap:28px;
 }
@@ -155,6 +165,15 @@
 
   .fraction-box-response{
     margin-left:2mm;
+  }
+
+  .integer-times-box-page .fraction-box-question-item{
+    grid-template-columns:9mm 36mm auto;
+    column-gap:4mm;
+  }
+
+  .integer-times-box-page .fraction-box-response{
+    margin-left:0;
   }
 
   .fraction-box-answer-item{

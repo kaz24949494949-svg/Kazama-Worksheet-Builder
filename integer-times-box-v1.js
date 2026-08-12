@@ -61,7 +61,15 @@
     return fraction;
   }
 
+  function clearSiblingModes() {
+    problemPage.classList.remove("fraction-box-base-page", "integer-equals-fraction-page");
+    answerPage.classList.remove("integer-equals-fraction-answer-page");
+    questions.classList.remove("integer-equals-fraction-questions");
+    answers.classList.remove("integer-equals-fraction-answers");
+  }
+
   function enableMode() {
+    clearSiblingModes();
     problemPage.classList.add("fraction-box-page", "integer-times-box-page");
     answerPage.classList.add("fraction-box-answer-page");
     questions.classList.add("fraction-box-questions");
@@ -69,9 +77,6 @@
   }
 
   function clearOwnMode() {
-    // 共通の解答タイトルは他教材の updateControls / clearMode に任せる。
-    // ここで変更すると、教材切替時のイベント順によって「解答」が
-    // 「解答・解説」に上書きされるため、自分専用のクラスだけ外す。
     problemPage.classList.remove("integer-times-box-page");
   }
 

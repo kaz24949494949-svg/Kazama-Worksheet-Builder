@@ -83,12 +83,14 @@
   white-space:nowrap;
 }
 
+.fraction-box-base-page .fraction-box-question-item,
 .integer-times-box-page .fraction-box-question-item{
   display:grid;
   grid-template-columns:38px 160px auto;
   column-gap:20px;
 }
 
+.fraction-box-base-page .fraction-box-response,
 .integer-times-box-page .fraction-box-response{
   margin-left:0;
 }
@@ -217,11 +219,13 @@
     margin-left:2mm;
   }
 
+  .fraction-box-base-page .fraction-box-question-item,
   .integer-times-box-page .fraction-box-question-item{
     grid-template-columns:9mm 36mm auto;
     column-gap:4mm;
   }
 
+  .fraction-box-base-page .fraction-box-response,
   .integer-times-box-page .fraction-box-response{
     margin-left:0;
   }

@@ -66,12 +66,21 @@
 
   function setMode(enabled) {
     problemPage.classList.toggle("fraction-box-page", enabled);
+    problemPage.classList.toggle("fraction-box-base-page", enabled);
     answerPage.classList.toggle("fraction-box-answer-page", enabled);
     questions.classList.toggle("fraction-box-questions", enabled);
     answers.classList.toggle("fraction-box-answers", enabled);
   }
 
+  function clearSiblingModes() {
+    problemPage.classList.remove("integer-times-box-page", "integer-equals-fraction-page");
+    answerPage.classList.remove("integer-equals-fraction-answer-page");
+    questions.classList.remove("integer-equals-fraction-questions");
+    answers.classList.remove("integer-equals-fraction-answers");
+  }
+
   function updateControls() {
+    clearSiblingModes();
     setMode(true);
     countSelect.replaceChildren();
 

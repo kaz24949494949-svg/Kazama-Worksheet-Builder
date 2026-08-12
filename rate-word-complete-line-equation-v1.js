@@ -3,7 +3,7 @@
 worksheetDefinitions["rate-word-complete-line-equation"] = {
   label: "割合の文章題→線分図を完成→式",
   title: "割合の文章題 → 線分図を完成 → 式",
-  instruction: "文章を読んで、線分図の空欄に数や□を書き込み、式を書いて答えを求めましょう。",
+  instruction: "文章を読んで、線分図の3つの空欄に、文章から分かる2つの数を書き、求める量のところには□を書きましょう。そのあと、式を書いて答えを求めましょう。",
   answerNote: "文章から、もとにする量・比べる量・割合を線分図へ対応させ、その後に式を立てます。",
   type: "math",
   difficulties: {
@@ -136,7 +136,7 @@ function makeRateCompleteWorksheet(){
     const prompt=document.createElement("p"); prompt.className="rate-complete-prompt";
     const num=document.createElement("span"); num.className="question-number"; num.textContent=String(n);
     prompt.append(num,document.createTextNode(rateCompleteWordProblem(q)));
-    const guide=document.createElement("p"); guide.className="rate-complete-guide"; guide.textContent="線分図の3つの空欄に、文章から分かる数と、求める量の□を書き込みましょう。";
+    const guide=document.createElement("p"); guide.className="rate-complete-guide"; guide.textContent="線分図の3つの空欄に、文章から分かる2つの数を書き、求める量のところには□を書きましょう。";
     const eq=document.createElement("p"); eq.className="rate-complete-equation-line"; eq.textContent="式：";
     const eqBlank=document.createElement("span"); eqBlank.className="rate-complete-blank rate-complete-equation-blank"; eq.appendChild(eqBlank);
     const ans=document.createElement("p"); ans.className="rate-complete-answer-line"; ans.textContent="答え：";

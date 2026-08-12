@@ -162,9 +162,10 @@
 }
 
 .integer-equals-fraction-answer-value{
-  min-width:58px;
+  min-width:105px;
   font-size:29px;
-  text-align:center;
+  text-align:left;
+  white-space:nowrap;
 }
 
 @media print{
@@ -253,7 +254,7 @@
   }
 
   .integer-equals-fraction-answer-value{
-    min-width:14mm;
+    min-width:28mm;
     font-size:18pt;
   }
 }

@@ -19,6 +19,7 @@
   const statusMessage = document.getElementById("statusMessage");
   const problemPage = document.querySelector(".problem-page");
   const answerPage = document.querySelector(".answer-page");
+  const answerTitle = answerPage.querySelector(".worksheet-heading h2");
 
   const ITEMS = [
     { integer: 1, denominator: 2, answer: 2 },
@@ -75,6 +76,7 @@
     answerPage.classList.remove("integer-equals-fraction-answer-page");
     questions.classList.remove("integer-equals-fraction-questions");
     answers.classList.remove("integer-equals-fraction-answers");
+    if (answerTitle.textContent === "解答") answerTitle.textContent = "解答・解説";
   }
 
   function updateControls() {
@@ -88,6 +90,7 @@
 
     difficultySelect.value = "basic";
     problemTitle.textContent = "問題";
+    answerTitle.textContent = "解答";
     instruction.textContent = "● 次の□に入る数を求めましょう。";
     answerNote.textContent = "";
     countGuide.textContent = "16問・2列×8段の固定レイアウトです。";
@@ -139,7 +142,7 @@
 
       const answerValue = document.createElement("span");
       answerValue.className = "integer-equals-fraction-answer-value";
-      answerValue.textContent = String(item.answer);
+      answerValue.textContent = `□＝${item.answer}`;
 
       answer.append(answerNumber, answerValue);
       answerFragment.appendChild(answer);

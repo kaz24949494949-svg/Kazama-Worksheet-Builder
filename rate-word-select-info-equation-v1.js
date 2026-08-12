@@ -20,9 +20,9 @@ const rateSelectContexts=[
   {id:"ball",mode:"part",base:"箱に入っているボール",compared:"赤いボール",unit:"個",extra:"青いボール",extraUnit:"個",extraRule:"remainder"},
   {id:"tank",mode:"part",base:"水そうに入る水の量",compared:"今入っている水の量",unit:"L",extra:"朝に使った水の量",extraUnit:"L",extraRule:"withinBase"},
   {id:"steps",mode:"comparison",base:"ある日の目標歩数",compared:"実際に歩いた歩数",unit:"歩",extra:"前日に歩いた歩数",extraUnit:"歩",extraRule:"comparison"},
-  {id:"cans",mode:"comparison",base:"去年集めた空き缶の数",compared:"今年集めた空き缶の数",unit:"個",extra:"先月集めた空き缶の数",extraUnit:"個",extraRule:"comparison"},
+  {id:"cans",mode:"comparison",base:"去年集めた空き缶の数",compared:"今年集めた空き缶の数",unit:"個",extra:"一昨年集めた空き缶の数",extraUnit:"個",extraRule:"comparison"},
   {id:"books-week",mode:"comparison",base:"先週読んだ本の数",compared:"今週読んだ本の数",unit:"冊",extra:"来週読む予定の本",extraUnit:"冊",extraRule:"comparison"},
-  {id:"distance",mode:"comparison",base:"昨日走った距離",compared:"今日走った距離",unit:"km",extra:"今週の目標距離",extraUnit:"km",extraRule:"comparison"},
+  {id:"distance",mode:"comparison",base:"昨日走った距離",compared:"今日走った距離",unit:"km",extra:"一昨日走った距離",extraUnit:"km",extraRule:"comparison"},
   {id:"pages",mode:"comparison",base:"昨日読んだページ数",compared:"今日読んだページ数",unit:"ページ",extra:"明日読む予定のページ数",extraUnit:"ページ",extraRule:"comparison"}
 ];
 

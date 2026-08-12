@@ -61,7 +61,12 @@
     return fraction;
   }
 
+  function clearSiblingModes() {
+    problemPage.classList.remove("fraction-box-base-page", "integer-times-box-page");
+  }
+
   function enableMode() {
+    clearSiblingModes();
     problemPage.classList.add("fraction-box-page", "integer-equals-fraction-page");
     answerPage.classList.add("fraction-box-answer-page", "integer-equals-fraction-answer-page");
     questions.classList.add("fraction-box-questions", "integer-equals-fraction-questions");
@@ -69,9 +74,6 @@
   }
 
   function clearOwnMode() {
-    // 共通タイトルは選択された教材側が決める。
-    // 非選択教材がここでタイトルを戻すと、イベント順によって
-    // 選択中の分数教材の「解答」を壊すため、専用クラスだけ外す。
     problemPage.classList.remove("integer-equals-fraction-page");
     answerPage.classList.remove("integer-equals-fraction-answer-page");
     questions.classList.remove("integer-equals-fraction-questions");

@@ -26,9 +26,15 @@ function wrapLeadingNumber(element) {
 }
 
 function styleQuestionNumbers() {
+    // 通常の算数問題
     document.querySelectorAll("#questions > p").forEach(wrapLeadingNumber);
 
-    // 「比を簡単にする」の解答番号
+    // 「割合の線分図」の問題番号
+    document
+        .querySelectorAll("#questions .rate-line-question > .rate-line-prompt")
+        .forEach(wrapLeadingNumber);
+
+    // 通常の解答番号
     document.querySelectorAll("#answers > p > b").forEach(wrapLeadingNumber);
 
     // 「比の値」の解答番号は .ratio-value-answer 内の b 要素に入っています。

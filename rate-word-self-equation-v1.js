@@ -28,6 +28,7 @@ const rateSelfContexts=[
 
 function gcdRateSelf(a,b){let x=Math.abs(a),y=Math.abs(b);while(y!==0)[x,y]=[y,x%y];return x}
 function formatRateSelf(r){return(r/100).toFixed(2).replace(/0+$/,"").replace(/\.$/,"")}
+function pickRateSelf(arr){return arr[Math.floor(Math.random()*arr.length)]}
 
 function buildRateSelfPool(settings){
   const relations=[];
@@ -73,9 +74,25 @@ function selectRateSelfQuestions(relations,count){
 
 function rateSelfWordProblem(q){
   const c=q.context;
-  if(q.kind==="rate")return`${c.base}は${q.base}${c.unit}です。${c.compared}は${q.compared}${c.unit}です。${c.compared}の、${c.base}に対する割合を小数で求めましょう。`;
-  if(q.kind==="compared")return`${c.base}は${q.base}${c.unit}です。${c.compared}は、その${q.rate}倍です。${c.compared}は何${c.unit}ですか。`;
-  return`${c.compared}は${q.compared}${c.unit}で、これは${c.base}の${q.rate}倍です。${c.base}は何${c.unit}ですか。`;
+  if(q.kind==="rate"){
+    return pickRateSelf([
+      `${c.base}は${q.base}${c.unit}、${c.compared}は${q.compared}${c.unit}です。${c.compared}は${c.base}のどれだけにあたるか、小数で表しましょう。`,
+      `${c.base}${q.base}${c.unit}のうち、${c.compared}は${q.compared}${c.unit}です。このときの割合を小数で求めましょう。`,
+      `${c.compared}が${q.compared}${c.unit}、${c.base}が${q.base}${c.unit}です。${c.compared}の${c.base}に対する割合を小数で求めましょう。`
+    ]);
+  }
+  if(q.kind==="compared"){
+    return pickRateSelf([
+      `${c.base}は${q.base}${c.unit}です。${c.compared}は${c.base}の${q.rate}倍にあたります。${c.compared}を求めましょう。`,
+      `${c.base}${q.base}${c.unit}を1とみると、${c.compared}は${q.rate}にあたります。${c.compared}は何${c.unit}ですか。`,
+      `${c.compared}は、${q.base}${c.unit}ある${c.base}の${q.rate}倍です。${c.compared}は何${c.unit}になりますか。`
+    ]);
+  }
+  return pickRateSelf([
+    `${c.compared}は${q.compared}${c.unit}です。これは${c.base}の${q.rate}倍にあたります。${c.base}を求めましょう。`,
+    `${c.compared}${q.compared}${c.unit}は、${c.base}を1としたとき${q.rate}にあたります。${c.base}は何${c.unit}ですか。`,
+    `${c.base}の${q.rate}倍が${q.compared}${c.unit}の${c.compared}です。${c.base}は何${c.unit}ですか。`
+  ]);
 }
 
 function rateSelfEquation(q){
@@ -95,7 +112,6 @@ function makeRateSelfWorksheet(){
   if(!Number.isInteger(count)||count<=0){statusMessage.textContent="問題数を正しく選んでください。";return}
   const selected=selectRateSelfQuestions(buildRateSelfPool(settings),count);
   if(selected.length<count){statusMessage.textContent="この設定では重複なしで指定した問題数を作成できません。";return}
-
   const qf=document.createDocumentFragment(),af=document.createDocumentFragment();
   selected.forEach((q,index)=>{
     const n=index+1,item=document.createElement("div");item.className="rate-self-question";
@@ -108,14 +124,12 @@ function makeRateSelfWorksheet(){
     const ans=document.createElement("p");ans.className="rate-self-answer-line";ans.textContent="答え：";
     const ansBlank=document.createElement("span");ansBlank.className="rate-self-blank rate-self-answer-blank";ans.appendChild(ansBlank);
     work.append(eq,ans);item.append(prompt,work);qf.appendChild(item);
-
     const a=document.createElement("div");a.className="rate-self-answer-item";
     const head=document.createElement("p"),anum=document.createElement("span");anum.className="question-number";anum.textContent=String(n);
     const data=rateSelfAnswer(q);head.append(anum,document.createTextNode(`${data.label} ${data.answer}`));
     const exp=document.createElement("p");exp.className="answer-explanation";exp.textContent=`式：${rateSelfEquation(q)}`;
     a.append(head,exp);af.appendChild(a);
   });
-
   questionsElement.replaceChildren(qf);answersElement.replaceChildren(af);
   worksheetDifficulty.textContent=`難易度：${settings.label}`;worksheetCount.textContent=`問題数：${count}問`;
   statusMessage.textContent=`割合の文章題→自力で式・${settings.label}を${count}問作成しました。`;

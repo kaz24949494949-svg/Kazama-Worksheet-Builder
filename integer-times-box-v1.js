@@ -51,15 +51,12 @@
   function createFraction(numerator, denominator) {
     const fraction = document.createElement("span");
     fraction.className = "fraction-box-answer-fraction";
-
     const top = document.createElement("span");
     top.className = "fraction-box-answer-numerator";
     top.textContent = String(numerator);
-
     const bottom = document.createElement("span");
     bottom.className = "fraction-box-answer-denominator";
     bottom.textContent = String(denominator);
-
     fraction.append(top, bottom);
     return fraction;
   }
@@ -72,8 +69,10 @@
   }
 
   function clearOwnMode() {
+    // 共通の解答タイトルは他教材の updateControls / clearMode に任せる。
+    // ここで変更すると、教材切替時のイベント順によって「解答」が
+    // 「解答・解説」に上書きされるため、自分専用のクラスだけ外す。
     problemPage.classList.remove("integer-times-box-page");
-    if (answerTitle.textContent === "解答") answerTitle.textContent = "解答・解説";
   }
 
   function updateControls() {
@@ -106,32 +105,25 @@
 
     ITEMS.forEach((item, index) => {
       const number = index + 1;
-
       const problem = document.createElement("div");
       problem.className = "fraction-box-question-item";
-
       const problemNumber = document.createElement("span");
       problemNumber.className = "fraction-box-number";
       problemNumber.textContent = circledNumber(number);
-
       const equation = document.createElement("span");
       equation.className = "fraction-box-equation";
       equation.textContent = `${item.multiplier}×□＝${item.result}`;
-
       const response = document.createElement("span");
       response.className = "fraction-box-response";
       response.textContent = "□＝";
-
       problem.append(problemNumber, equation, response);
       questionFragment.appendChild(problem);
 
       const answer = document.createElement("div");
       answer.className = "fraction-box-answer-item";
-
       const answerNumber = document.createElement("span");
       answerNumber.className = "fraction-box-number";
       answerNumber.textContent = circledNumber(number);
-
       answer.append(answerNumber, createFraction(item.numerator, item.denominator));
       answerFragment.appendChild(answer);
     });

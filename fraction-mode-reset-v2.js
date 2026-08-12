@@ -46,7 +46,10 @@
     answers.classList.remove(...answerListClasses);
   }
 
-  // This handler must be registered before every worksheet-specific handler.
-  // It therefore runs first even when a later handler calls stopImmediatePropagation().
-  typeSelect.addEventListener("change", clearFractionModes, true);
+  // Register on document in the capture phase. This script is loaded before every
+  // worksheet-specific script, so this reset runs before later document-level
+  // handlers that may call stopImmediatePropagation().
+  document.addEventListener("change", (event) => {
+    if (event.target === typeSelect) clearFractionModes();
+  }, true);
 })();

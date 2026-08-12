@@ -1,15 +1,15 @@
 "use strict";
 
 worksheetDefinitions["rate-word-line-equation"] = {
-  label: "割合の文章題→線分図→式",
-  title: "割合の文章題 → 線分図 → 式",
-  instruction: "文章を読んで線分図との対応を確かめ、式を書いて答えを求めましょう。",
-  answerNote: "文章 → 線分図 → 式の順に、もとにする量・比べる量・割合の関係を整理します。",
+  label: "割合の文章題→線分図で確認→式",
+  title: "割合の文章題 → 線分図で確認 → 式",
+  instruction: "文章を読んで、線分図で関係を確かめ、式を書いて答えを求めましょう。",
+  answerNote: "文章 → 線分図で確認 → 式の順に、もとにする量・比べる量・割合の関係を整理します。",
   type: "math",
   difficulties: {
-    basic: { label: "基礎", rateHundredths: [20,30,40,50,60,70,80,90], multipliers: [1,2,3,4,5], counts: [3,4], description: "短い文章と線分図を対応させ、小数第1位までの割合で式を立てます。" },
-    standard: { label: "標準", rateHundredths: [15,25,35,45,55,65,75,85,95], multipliers: [1,2,3,4,5,6], counts: [3,4,5], description: "小数第2位までの割合を含む3用法を、文章→線分図→式で整理します。" },
-    advanced: { label: "発展", rateHundredths: [12,18,24,32,48,72,105,125,150,175,225], multipliers: [1,2,3,4,5,6], counts: [3,4,5], description: "1をこえる割合も含め、文章・線分図・式を往復して関係を判断します。" }
+    basic: { label: "基礎", rateHundredths: [20,30,40,50,60,70,80,90], multipliers: [1,2,3,4,5], counts: [3,4], description: "短い文章を読み、線分図で関係を確かめて、小数第1位までの割合で式を立てます。" },
+    standard: { label: "標準", rateHundredths: [15,25,35,45,55,65,75,85,95], multipliers: [1,2,3,4,5,6], counts: [3,4,5], description: "小数第2位までの割合を含む3用法を、文章→線分図で確認→式の流れで整理します。" },
+    advanced: { label: "発展", rateHundredths: [12,18,24,32,48,72,105,125,150,175,225], multipliers: [1,2,3,4,5,6], counts: [3,4,5], description: "1をこえる割合も含め、文章・線分図・式を対応させて関係を判断します。" }
   }
 };
 
@@ -73,7 +73,7 @@ function selectRateBridgeQuestions(relations,count){
 
 function rateBridgeWordProblem(q){
   const c=q.context;
-  if(q.kind==="rate") return `${c.base}は${q.base}${c.unit}です。${c.compared}は${q.compared}${c.unit}です。${c.compared}は${c.base}のどれだけにあたりますか。割合を小数で求めましょう。`;
+  if(q.kind==="rate") return `${c.base}は${q.base}${c.unit}です。${c.compared}は${q.compared}${c.unit}です。${c.compared}の、${c.base}に対する割合を小数で求めましょう。`;
   if(q.kind==="compared") return `${c.base}は${q.base}${c.unit}です。${c.compared}は、その${q.rate}倍です。${c.compared}は何${c.unit}ですか。`;
   return `${c.compared}は${q.compared}${c.unit}で、これは${c.base}の${q.rate}倍です。${c.base}は何${c.unit}ですか。`;
 }
@@ -152,7 +152,7 @@ function makeRateBridgeWorksheet(){
 
   questionsElement.replaceChildren(qf); answersElement.replaceChildren(af);
   worksheetDifficulty.textContent=`難易度：${settings.label}`; worksheetCount.textContent=`問題数：${count}問`;
-  statusMessage.textContent=`割合の文章題→線分図→式・${settings.label}を${count}問作成しました。`;
+  statusMessage.textContent=`割合の文章題→線分図で確認→式・${settings.label}を${count}問作成しました。`;
   document.querySelector(".problem-page").scrollIntoView({behavior:"smooth",block:"start"});
 }
 

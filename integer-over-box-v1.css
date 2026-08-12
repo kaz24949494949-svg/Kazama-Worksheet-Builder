@@ -1,0 +1,74 @@
+.integer-over-box-item{
+  display:grid;
+  grid-template-columns:38px 186px auto;
+  column-gap:16px;
+  align-items:center;
+}
+
+.integer-over-box-equation{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+}
+
+.integer-over-box-expression{
+  display:inline-grid;
+  grid-template-rows:auto auto;
+  justify-items:center;
+  align-items:center;
+  min-width:66px;
+  font-size:30px;
+  line-height:1.05;
+}
+
+.integer-over-box-numerator{
+  width:100%;
+  padding:0 10px 4px;
+  border-bottom:2px solid #222;
+  text-align:center;
+}
+
+.integer-over-box-denominator{
+  padding-top:4px;
+}
+
+.integer-over-box-response{
+  margin-left:0;
+}
+
+.integer-over-box-answer-item{
+  gap:28px;
+}
+
+.integer-over-box-answer-value{
+  min-width:105px;
+  font-size:29px;
+  text-align:left;
+  white-space:nowrap;
+}
+
+@media print{
+  .integer-over-box-item{
+    grid-template-columns:9mm 44mm auto;
+    column-gap:3mm;
+  }
+
+  .integer-over-box-equation{
+    gap:2mm;
+  }
+
+  .integer-over-box-expression{
+    min-width:16mm;
+    font-size:18pt;
+  }
+
+  .integer-over-box-response{
+    margin-left:0;
+  }
+
+  .integer-over-box-answer-value{
+    min-width:28mm;
+    font-size:18pt;
+  }
+}

@@ -14,21 +14,20 @@ worksheetDefinitions["rate-word-select-info-equation"]={
 };
 
 const rateSelectContexts=[
-  {id:"library",mode:"part",base:"図書館にある本",compared:"貸し出されている本",unit:"冊",extra:"新しく入った本",extraUnit:"冊"},
-  {id:"flower",mode:"part",base:"花だんに植えた花",compared:"赤い花",unit:"株",extra:"黄色い花",extraUnit:"株"},
-  {id:"class",mode:"part",base:"クラスの児童",compared:"めがねをかけている児童",unit:"人",extra:"昨日欠席した児童",extraUnit:"人"},
-  {id:"ball",mode:"part",base:"箱に入っているボール",compared:"赤いボール",unit:"個",extra:"青いボール",extraUnit:"個"},
-  {id:"tank",mode:"part",base:"水そうに入る水の量",compared:"今入っている水の量",unit:"L",extra:"朝に使った水の量",extraUnit:"L"},
-  {id:"steps",mode:"comparison",base:"ある日の目標歩数",compared:"実際に歩いた歩数",unit:"歩",extra:"前日に歩いた歩数",extraUnit:"歩"},
-  {id:"cans",mode:"comparison",base:"去年集めた空き缶の数",compared:"今年集めた空き缶の数",unit:"個",extra:"先月集めた空き缶の数",extraUnit:"個"},
-  {id:"books-week",mode:"comparison",base:"先週読んだ本の数",compared:"今週読んだ本の数",unit:"冊",extra:"来週読む予定の本",extraUnit:"冊"},
-  {id:"distance",mode:"comparison",base:"昨日走った距離",compared:"今日走った距離",unit:"km",extra:"今週の目標距離",extraUnit:"km"},
-  {id:"pages",mode:"comparison",base:"昨日読んだページ数",compared:"今日読んだページ数",unit:"ページ",extra:"明日読む予定のページ数",extraUnit:"ページ"}
+  {id:"library",mode:"part",base:"図書館にある本",compared:"貸し出されている本",unit:"冊",extra:"新しく入った本",extraUnit:"冊",extraRule:"withinBase"},
+  {id:"flower",mode:"part",base:"花だんに植えた花",compared:"赤い花",unit:"株",extra:"黄色い花",extraUnit:"株",extraRule:"remainder"},
+  {id:"class",mode:"part",base:"クラスの児童",compared:"めがねをかけている児童",unit:"人",extra:"昨日欠席した児童",extraUnit:"人",extraRule:"withinBase"},
+  {id:"ball",mode:"part",base:"箱に入っているボール",compared:"赤いボール",unit:"個",extra:"青いボール",extraUnit:"個",extraRule:"remainder"},
+  {id:"tank",mode:"part",base:"水そうに入る水の量",compared:"今入っている水の量",unit:"L",extra:"朝に使った水の量",extraUnit:"L",extraRule:"withinBase"},
+  {id:"steps",mode:"comparison",base:"ある日の目標歩数",compared:"実際に歩いた歩数",unit:"歩",extra:"前日に歩いた歩数",extraUnit:"歩",extraRule:"comparison"},
+  {id:"cans",mode:"comparison",base:"去年集めた空き缶の数",compared:"今年集めた空き缶の数",unit:"個",extra:"先月集めた空き缶の数",extraUnit:"個",extraRule:"comparison"},
+  {id:"books-week",mode:"comparison",base:"先週読んだ本の数",compared:"今週読んだ本の数",unit:"冊",extra:"来週読む予定の本",extraUnit:"冊",extraRule:"comparison"},
+  {id:"distance",mode:"comparison",base:"昨日走った距離",compared:"今日走った距離",unit:"km",extra:"今週の目標距離",extraUnit:"km",extraRule:"comparison"},
+  {id:"pages",mode:"comparison",base:"昨日読んだページ数",compared:"今日読んだページ数",unit:"ページ",extra:"明日読む予定のページ数",extraUnit:"ページ",extraRule:"comparison"}
 ];
 
 function gcdRateSelect(a,b){let x=Math.abs(a),y=Math.abs(b);while(y!==0)[x,y]=[y,x%y];return x}
 function formatRateSelect(r){return(r/100).toFixed(2).replace(/0+$/,"").replace(/\.$/,"")}
-function pickRateSelect(arr){return arr[Math.floor(Math.random()*arr.length)]}
 
 function buildRateSelectPool(settings){
   const relations=[];
@@ -59,10 +58,40 @@ function chooseRateSelectContext(numericRate,usage){
   return chosen;
 }
 
+function uniquePositiveRateSelect(values,q,maxValue=Infinity){
+  const seen=new Set();
+  return values.map(v=>Math.round(v)).filter(v=>{
+    if(!Number.isInteger(v)||v<=0||v>maxValue)return false;
+    if(v===q.base||v===q.compared||v===Number(q.rate)||seen.has(v))return false;
+    seen.add(v);return true;
+  });
+}
+
 function makeRateSelectDistractor(q,index){
-  const candidates=[3,4,5,6,7,8,9,10,12,15,18,20,24,25,30,40,50,60,80,100];
-  const filtered=candidates.filter(v=>v!==q.base&&v!==q.compared&&v!==Number(q.rate));
-  return filtered[(index*5+q.base+q.compared)%filtered.length];
+  const rule=q.context.extraRule;
+  let candidates=[];
+  if(rule==="remainder"){
+    const maxExtra=Math.max(1,q.base-q.compared);
+    candidates=uniquePositiveRateSelect([
+      Math.floor(maxExtra/2),Math.floor(maxExtra/3),Math.floor(maxExtra*2/3),maxExtra,maxExtra-1,1
+    ],q,maxExtra);
+  }else if(rule==="withinBase"){
+    candidates=uniquePositiveRateSelect([
+      Math.floor(q.base/4),Math.floor(q.base/3),Math.floor(q.base/2),Math.floor(q.base*2/3),q.base-1,1
+    ],q,q.base);
+  }else{
+    const ref=Math.max(q.base,q.compared);
+    candidates=uniquePositiveRateSelect([
+      Math.floor(ref/2),Math.floor(ref*3/4),Math.ceil(ref*5/4),Math.ceil(ref*3/2),ref+1,Math.max(1,ref-1)
+    ],q);
+  }
+  if(candidates.length===0){
+    const fallbackMax=rule==="remainder"?Math.max(1,q.base-q.compared):(rule==="withinBase"?q.base:Math.max(q.base,q.compared)+10);
+    for(let v=1;v<=fallbackMax;v++){
+      if(v!==q.base&&v!==q.compared&&v!==Number(q.rate))candidates.push(v);
+    }
+  }
+  return candidates[index%candidates.length];
 }
 
 function selectRateSelectQuestions(relations,count){
@@ -110,9 +139,10 @@ function rateSelectEquation(q){
   return`${q.compared} ÷ ${q.rate} ＝ ${q.base}`;
 }
 function rateSelectAnswer(q){
-  if(q.kind==="rate")return{label:"割合",answer:q.rate,needed:`${q.compared}${q.context.unit} と ${q.base}${q.context.unit}`};
-  if(q.kind==="compared")return{label:"比べる量",answer:`${q.compared}${q.context.unit}`,needed:`${q.base}${q.context.unit} と ${q.rate}`};
-  return{label:"もとにする量",answer:`${q.base}${q.context.unit}`,needed:`${q.compared}${q.context.unit} と ${q.rate}`};
+  const c=q.context;
+  if(q.kind==="rate")return{label:"割合",answer:q.rate,needed:`${c.compared} ${q.compared}${c.unit}・${c.base} ${q.base}${c.unit}`};
+  if(q.kind==="compared")return{label:"比べる量",answer:`${q.compared}${c.unit}`,needed:`${c.base} ${q.base}${c.unit}・割合 ${q.rate}`};
+  return{label:"もとにする量",answer:`${q.base}${c.unit}`,needed:`${c.compared} ${q.compared}${c.unit}・割合 ${q.rate}`};
 }
 
 function makeRateSelectWorksheet(){

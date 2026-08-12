@@ -58,11 +58,10 @@ function chooseRateSelectContext(numericRate,usage){
   return chosen;
 }
 
-function uniquePositiveRateSelect(values,q,maxValue=Infinity){
+function uniquePositiveRateSelect(values,maxValue=Infinity){
   const seen=new Set();
   return values.map(v=>Math.round(v)).filter(v=>{
-    if(!Number.isInteger(v)||v<=0||v>maxValue)return false;
-    if(v===q.base||v===q.compared||v===Number(q.rate)||seen.has(v))return false;
+    if(!Number.isInteger(v)||v<=0||v>maxValue||seen.has(v))return false;
     seen.add(v);return true;
   });
 }
@@ -74,22 +73,20 @@ function makeRateSelectDistractor(q,index){
     const maxExtra=Math.max(1,q.base-q.compared);
     candidates=uniquePositiveRateSelect([
       Math.floor(maxExtra/2),Math.floor(maxExtra/3),Math.floor(maxExtra*2/3),maxExtra,maxExtra-1,1
-    ],q,maxExtra);
+    ],maxExtra);
   }else if(rule==="withinBase"){
     candidates=uniquePositiveRateSelect([
       Math.floor(q.base/4),Math.floor(q.base/3),Math.floor(q.base/2),Math.floor(q.base*2/3),q.base-1,1
-    ],q,q.base);
+    ],q.base);
   }else{
     const ref=Math.max(q.base,q.compared);
     candidates=uniquePositiveRateSelect([
       Math.floor(ref/2),Math.floor(ref*3/4),Math.ceil(ref*5/4),Math.ceil(ref*3/2),ref+1,Math.max(1,ref-1)
-    ],q);
+    ]);
   }
   if(candidates.length===0){
-    const fallbackMax=rule==="remainder"?Math.max(1,q.base-q.compared):(rule==="withinBase"?q.base:Math.max(q.base,q.compared)+10);
-    for(let v=1;v<=fallbackMax;v++){
-      if(v!==q.base&&v!==q.compared&&v!==Number(q.rate))candidates.push(v);
-    }
+    const fallbackMax=rule==="remainder"?Math.max(1,q.base-q.compared):(rule==="withinBase"?Math.max(1,q.base):Math.max(q.base,q.compared)+10);
+    for(let v=1;v<=fallbackMax;v++)candidates.push(v);
   }
   return candidates[index%candidates.length];
 }

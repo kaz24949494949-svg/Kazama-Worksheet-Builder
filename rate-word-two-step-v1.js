@@ -119,7 +119,7 @@ function makeRateTwoStepWorksheet(){
     prompt.append(num,document.createTextNode(rateTwoStepQuestionText(q)));
     const first=document.createElement("p");first.className="rate-two-step-line";first.textContent="① 合計を求める式：";
     const firstBlank=document.createElement("span");firstBlank.className="rate-two-step-blank rate-two-step-first-blank";first.appendChild(firstBlank);
-    const second=document.createElement("p");second.className="rate-two-step-line";second.textContent="② 割合の式：";
+    const second=document.createElement("p");second.className="rate-two-step-line";second.textContent="② 割合を使う式：";
     const secondBlank=document.createElement("span");secondBlank.className="rate-two-step-blank rate-two-step-second-blank";second.appendChild(secondBlank);
     const ans=document.createElement("p");ans.className="rate-two-step-line";ans.textContent="答え：";
     const ansBlank=document.createElement("span");ansBlank.className="rate-two-step-blank rate-two-step-answer-blank";ans.appendChild(ansBlank);

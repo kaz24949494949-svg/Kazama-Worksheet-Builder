@@ -267,7 +267,7 @@ function makeWorksheet() {
   const selected = pool.slice(0, count); const questionFragment = document.createDocumentFragment(); const answerFragment = document.createDocumentFragment();
   selected.forEach((question, index) => {
     const number = index + 1;
-    if (definition.type === "english-order") {
+    if (definition.type === "english-order" || definition.type === "english-order-past") {
       appendEnglishOrderQuestion(questionFragment, question, number); appendEnglishAnswer(answerFragment, question, number, definition.type); return;
     }
     if (definition.type === "english-rewrite") {

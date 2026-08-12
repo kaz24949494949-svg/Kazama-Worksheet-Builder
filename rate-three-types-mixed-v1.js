@@ -63,9 +63,10 @@ function buildRateThreeTypesPool(settings) {
       if (Math.abs(base * numericRate - compared) > 1e-9) return;
       if (Math.abs(compared / numericRate - base) > 1e-9) return;
 
-      groups.rate.push({ kind: "rate", base, compared, rate });
-      groups.compared.push({ kind: "compared", base, compared, rate });
-      groups.base.push({ kind: "base", base, compared, rate });
+      const relationKey = `${base}:${compared}:${rate}`;
+      groups.rate.push({ kind: "rate", base, compared, rate, relationKey });
+      groups.compared.push({ kind: "compared", base, compared, rate, relationKey });
+      groups.base.push({ kind: "base", base, compared, rate, relationKey });
     });
   });
 
@@ -75,29 +76,34 @@ function buildRateThreeTypesPool(settings) {
   return groups;
 }
 
+function mixedKindTargets(count) {
+  const kinds = shuffle(["rate", "compared", "base"]);
+  const targets = { rate: Math.floor(count / 3), compared: Math.floor(count / 3), base: Math.floor(count / 3) };
+  for (let i = 0; i < count % 3; i += 1) {
+    targets[kinds[i]] += 1;
+  }
+  return targets;
+}
+
 function selectBalancedMixedQuestions(groups, count) {
-  const order = shuffle(["rate", "compared", "base"]);
+  const targets = mixedKindTargets(count);
   const selected = [];
-  const positions = { rate: 0, compared: 0, base: 0 };
-  const seen = new Set();
+  const seenRelations = new Set();
+  const kindOrder = shuffle(["rate", "compared", "base"]);
 
-  let guard = 0;
-  while (selected.length < count && guard < count * 20) {
-    const kind = order[guard % order.length];
-    const list = groups[kind];
-    const index = positions[kind];
-    positions[kind] += 1;
-    guard += 1;
-
-    if (index >= list.length) continue;
-    const question = list[index];
-    const key = `${question.kind}:${question.base}:${question.compared}:${question.rate}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
-    selected.push(question);
+  for (const kind of kindOrder) {
+    let added = 0;
+    for (const question of groups[kind]) {
+      if (added >= targets[kind]) break;
+      if (seenRelations.has(question.relationKey)) continue;
+      seenRelations.add(question.relationKey);
+      selected.push(question);
+      added += 1;
+    }
+    if (added < targets[kind]) return [];
   }
 
-  return selected;
+  return shuffle(selected);
 }
 
 function mixedProblemText(question) {
@@ -113,17 +119,20 @@ function mixedProblemText(question) {
 function mixedAnswerData(question) {
   if (question.kind === "rate") {
     return {
+      label: "割合",
       answer: question.rate,
       explanation: `割合＝比べる量÷もとにする量なので、${question.compared}÷${question.base}＝${question.rate}。`
     };
   }
   if (question.kind === "compared") {
     return {
+      label: "比べる量",
       answer: question.compared,
       explanation: `比べる量＝もとにする量×割合なので、${question.base}×${question.rate}＝${question.compared}。`
     };
   }
   return {
+    label: "もとにする量",
     answer: question.base,
     explanation: `もとにする量＝比べる量÷割合なので、${question.compared}÷${question.rate}＝${question.base}。`
   };
@@ -133,11 +142,17 @@ function makeRateThreeTypesMixedWorksheet() {
   const definition = worksheetDefinitions["rate-three-types-mixed"];
   const settings = definition.difficulties[difficultySelect.value];
   const count = Number(countSelect.value);
+
+  if (!Number.isInteger(count) || count <= 0) {
+    statusMessage.textContent = "問題数を正しく選んでください。";
+    return;
+  }
+
   const groups = buildRateThreeTypesPool(settings);
   const selected = selectBalancedMixedQuestions(groups, count);
 
-  if (!Number.isInteger(count) || count <= 0 || selected.length < count) {
-    statusMessage.textContent = "この設定では重複なしで指定した問題数を作成できません。";
+  if (selected.length < count) {
+    statusMessage.textContent = "この設定では数値関係の重複なしで指定した問題数を作成できません。";
     return;
   }
 
@@ -153,7 +168,7 @@ function makeRateThreeTypesMixedWorksheet() {
     const data = mixedAnswerData(question);
     const answer = document.createElement("p");
     const main = document.createElement("b");
-    main.textContent = `${number}. ${data.answer}`;
+    main.textContent = `${number}. ${data.label} ${data.answer}`;
     const explanation = document.createElement("span");
     explanation.className = "answer-explanation";
     explanation.textContent = `解説：${data.explanation}`;
@@ -165,7 +180,7 @@ function makeRateThreeTypesMixedWorksheet() {
   answersElement.replaceChildren(answerFragment);
   worksheetDifficulty.textContent = `難易度：${settings.label}`;
   worksheetCount.textContent = `問題数：${count}問`;
-  statusMessage.textContent = `割合の3用法（混合）・${settings.label}を${count}問作成しました。`;
+  statusMessage.textContent = `割合の3用法（混合）・${settings.label}を${count}問、数値関係の重複なしで作成しました。`;
   document.querySelector(".problem-page").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 

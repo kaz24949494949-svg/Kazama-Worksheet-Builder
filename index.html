@@ -14,12 +14,13 @@
   <link rel="stylesheet" href="rate-line-diagram-v1.css">
   <link rel="stylesheet" href="rate-word-line-equation-v1.css">
   <link rel="stylesheet" href="rate-word-complete-line-equation-v1.css">
+  <link rel="stylesheet" href="rate-word-draw-line-equation-v1.css">
 </head>
 <body>
   <header class="app-header"><div class="header-inner"><p class="app-label">算数・英語ワークシート作成ツール</p><h1>Kazama Worksheet Builder</h1><p>授業ですぐ使える問題・解答・解説を自動で作成します。</p></div></header>
   <main>
     <section class="control-panel no-print">
-      <div class="panel-heading"><div><p class="step-label">STEP 1</p><h2>教材と問題の設定</h2></div><span class="version-label">Version 18</span></div>
+      <div class="panel-heading"><div><p class="step-label">STEP 1</p><h2>教材と問題の設定</h2></div><span class="version-label">Version 19</span></div>
       <div class="form-grid">
         <div class="form-item form-item-wide"><label for="worksheetType">教材</label><select id="worksheetType">
           <optgroup label="英語"><option value="make-adjective-order">物主構文 make（目的語＋形容詞）― 整序英作文</option><option value="make-adjective-rewrite">物主構文 make（目的語＋形容詞）― 書き換え</option></optgroup>
@@ -27,7 +28,7 @@
             <option value="fraction-box-equations">□を求める（分数）― 16問</option><option value="integer-times-box">整数×□＝整数（分数）― 16問</option><option value="integer-equals-fraction">整数＝□／整数 ― 16問</option>
             <option value="multiple-system1">倍数強化ワーク 系統1 ― 整数倍・基本</option><option value="multiple-system2">倍数強化ワーク 系統2 ― 整数倍・単位定着</option><option value="multiple-system3">倍数強化ワーク 系統3 ― 単位分数倍</option>
             <option value="simplify-ratio">比を簡単にする</option><option value="ratio-value">比の値</option><option value="equivalent-ratio">等しい比</option><option value="proportion">比例式</option>
-            <option value="rate-decimal">割合（小数）</option><option value="rate-percent">割合（百分率）</option><option value="compared-amount-decimal">比べる量（小数）</option><option value="base-amount-decimal">もとにする量（小数）</option><option value="rate-three-types-mixed">割合の3用法（混合）</option><option value="rate-word-problems">割合の文章題</option><option value="rate-line-diagram">割合の線分図</option><option value="rate-word-line-equation">割合の文章題→線分図で確認→式</option><option value="rate-word-complete-line-equation">割合の文章題→線分図を完成→式</option>
+            <option value="rate-decimal">割合（小数）</option><option value="rate-percent">割合（百分率）</option><option value="compared-amount-decimal">比べる量（小数）</option><option value="base-amount-decimal">もとにする量（小数）</option><option value="rate-three-types-mixed">割合の3用法（混合）</option><option value="rate-word-problems">割合の文章題</option><option value="rate-line-diagram">割合の線分図</option><option value="rate-word-line-equation">割合の文章題→線分図で確認→式</option><option value="rate-word-complete-line-equation">割合の文章題→線分図を完成→式</option><option value="rate-word-draw-line-equation">割合の文章題→線分図をかく→式</option>
           </optgroup></select><p class="field-note">教材を選ぶと、説明と問題形式が自動で切り替わります。</p></div>
         <div class="form-item"><label for="difficulty">難易度</label><select id="difficulty"><option value="basic">基礎</option><option value="standard" selected>標準</option><option value="advanced">発展</option></select></div>
         <div class="form-item"><label for="count">問題数</label><select id="count"></select><p id="countGuide" class="field-note"></p></div>
@@ -41,6 +42,6 @@
       <section class="answer-page"><div class="worksheet-heading"><div><p class="worksheet-brand">Kazama Worksheet Builder</p><h2>解答・解説</h2></div></div><div id="answerNote" class="answer-note">語順は「主語＋make／makes／made＋目的語＋形容詞」です。</div><div id="answers">まだ解答はありません。</div></section>
     </section>
   </main>
-  <script src="script.js"></script><script src="english-v4.js"></script><script src="english-v4-runtime.js"></script><script src="english-v5.js"></script><script src="english-v6-keep-adjective.js"></script><script src="english-v6-keep-ing.js"></script><script src="english-v7-keep-from-ing.js"></script><script src="english-v8-prevent-from-ing.js"></script><script src="english-v9-leave-past-participle.js"></script><script src="english-v10-enable-to.js"></script><script src="english-v11-cause-to.js"></script><script src="english-v12-force-to.js"></script><script src="english-v13-remind-of.js"></script><script src="number-style.js"></script><script src="multiples-v1.js"></script><script src="proportion-v1.js"></script><script src="rate-decimal-v1.js"></script><script src="rate-percent-v1.js"></script><script src="compared-amount-decimal-v1.js"></script><script src="base-amount-decimal-v1.js"></script><script src="rate-three-types-mixed-v1.js"></script><script src="rate-word-problems-v1.js"></script><script src="rate-line-diagram-v1.js"></script><script src="rate-word-line-equation-v1.js"></script><script src="rate-word-complete-line-equation-v1.js"></script><script src="fraction-box-equations-v1.js"></script><script src="integer-times-box-v1.js"></script><script src="integer-equals-fraction-v1.js"></script>
+  <script src="script.js"></script><script src="english-v4.js"></script><script src="english-v4-runtime.js"></script><script src="english-v5.js"></script><script src="english-v6-keep-adjective.js"></script><script src="english-v6-keep-ing.js"></script><script src="english-v7-keep-from-ing.js"></script><script src="english-v8-prevent-from-ing.js"></script><script src="english-v9-leave-past-participle.js"></script><script src="english-v10-enable-to.js"></script><script src="english-v11-cause-to.js"></script><script src="english-v12-force-to.js"></script><script src="english-v13-remind-of.js"></script><script src="number-style.js"></script><script src="multiples-v1.js"></script><script src="proportion-v1.js"></script><script src="rate-decimal-v1.js"></script><script src="rate-percent-v1.js"></script><script src="compared-amount-decimal-v1.js"></script><script src="base-amount-decimal-v1.js"></script><script src="rate-three-types-mixed-v1.js"></script><script src="rate-word-problems-v1.js"></script><script src="rate-line-diagram-v1.js"></script><script src="rate-word-line-equation-v1.js"></script><script src="rate-word-complete-line-equation-v1.js"></script><script src="rate-word-draw-line-equation-v1.js"></script><script src="fraction-box-equations-v1.js"></script><script src="integer-times-box-v1.js"></script><script src="integer-equals-fraction-v1.js"></script>
 </body>
 </html>

@@ -45,32 +45,32 @@ const keepFromIngQuestions = {
     { ja: "その情報がもっと早く共有されていれば、私たちは同じ間違いを繰り返さずに済んだかもしれません。", answer: "That information might have kept us from repeating the same mistake if it had been shared earlier.", words: ["might have kept", "that information", "from repeating", "us", "the same mistake", "if it had been shared earlier"] }
   ],
   hard: [
-    { ja: "直前に届いた警告のおかげで、私たちは危険な区域に入らずに済みました。", answer: "The warning that arrived at the last minute kept us from entering the dangerous area.", words: ["the warning that arrived at the last minute", "from entering", "kept", "us", "the dangerous area"] },
-    { ja: "彼がどれほど疲れていたとしても、責任感が彼に仕事を途中で投げ出させませんでした。", answer: "However tired he was, his sense of responsibility kept him from abandoning the task halfway through.", words: ["his sense of responsibility", "however tired he was", "from abandoning", "kept", "him", "the task halfway through"] },
-    { ja: "その情報が事前に共有されていれば、何人かの参加者が同じ間違いをするのを防げたかもしれません。", answer: "That information could have kept several participants from making the same mistake if it had been shared in advance.", words: ["could have kept", "from making", "that information", "several participants", "the same mistake", "if it had been shared in advance"] },
-    { ja: "新たに導入された規則は、研究者が必要なデータを自由に利用するのを妨げかねません。", answer: "The newly introduced regulations may well keep researchers from accessing the necessary data freely.", words: ["may well keep", "the newly introduced regulations", "from accessing", "researchers", "the necessary data", "freely"] },
-    { ja: "周囲からの激しい批判でさえ、彼女が自分の判断に従って行動するのを止めることはできませんでした。", answer: "Even the severe criticism from those around her could not keep her from acting according to her own judgment.", words: ["even the severe criticism from those around her", "could not keep", "from acting", "her", "according to her own judgment"] },
-    { ja: "もし安全確認が適切に行われていなかったら、その装置でも作業員が重大な事故を起こすのを防げなかったかもしれません。", answer: "Even the device might not have kept the workers from causing a serious accident if the safety checks had not been carried out properly.", words: ["even the device", "might not have kept", "the workers", "from causing", "a serious accident", "if the safety checks had not been carried out properly"] },
-    { ja: "長年にわたって身につけた経験が、予期せぬ事態に直面しても彼に冷静さを失わせませんでした。", answer: "The experience he had gained over the years kept him from losing his composure when faced with the unexpected situation.", words: ["the experience he had gained over the years", "from losing", "kept", "him", "his composure", "when faced with the unexpected situation"] },
-    { ja: "予算がさらに削減されれば、学校は、それを必要とする生徒に十分な支援を提供できなくなるでしょう。", answer: "Further budget cuts will keep the school from providing adequate support for students who need it.", words: ["further budget cuts", "will keep", "the school", "from providing", "adequate support", "for students who need it"] },
-    { ja: "彼が事実を隠そうとしたことも、私たちが何かがおかしいと疑うのを止めることはできませんでした。", answer: "His attempt to hide the facts did not keep us from suspecting that something was wrong.", words: ["his attempt to hide the facts", "did not keep", "us", "from suspecting", "that something was wrong"] },
-    { ja: "計画が徹底的に見直されていれば、担当者は同じ判断ミスを繰り返さずに済んだかもしれません。", answer: "A thorough review of the plan might have kept the officials in charge from repeating the same error in judgment if it had been carried out.", words: ["a thorough review of the plan", "might have kept", "the officials in charge", "from repeating", "the same error in judgment", "if it had been carried out"] },
-    { ja: "彼女の冷静な態度のおかげで、他のメンバーは感情的に反応せずに済みました。", answer: "Her calm attitude kept the other members from reacting emotionally.", words: ["her calm attitude", "kept", "the other members", "from reacting", "emotionally"] },
-    { ja: "たとえ法律が改正されたとしても、それだけでは企業が同じ慣行を続けるのを完全には防げないかもしれません。", answer: "Even if the law is revised, that alone may not be enough to keep companies from continuing the same practice.", words: ["even if the law is revised", "may not be enough to keep", "that alone", "companies", "from continuing", "the same practice"] }
+    { ja: "直前に届いた警告のおかげで、私たちは危険な区域に入らずに済みました。", answer: "The warning that arrived at the last minute kept us from entering the dangerous area.", words: ["area", "arrived", "at", "dangerous", "entering", "from", "kept", "last", "minute", "the", "the", "the", "that", "us", "warning", "although"], unused: "although" },
+    { ja: "彼がどれほど疲れていたとしても、責任感が彼に仕事を途中で投げ出させませんでした。", answer: "However tired he was, his sense of responsibility kept him from abandoning the task halfway through.", words: ["abandoning", "from", "halfway", "he", "him", "his", "however", "kept", "of", "responsibility", "sense", "task", "the", "through", "tired", "was", "unless"], unused: "unless" },
+    { ja: "その情報が事前に共有されていれば、何人かの参加者が同じ間違いをするのを防げたかもしれません。", answer: "That information could have kept several participants from making the same mistake if it had been shared in advance.", words: ["advance", "been", "could", "from", "had", "have", "if", "in", "information", "it", "kept", "making", "mistake", "participants", "same", "several", "shared", "that", "the", "despite"], unused: "despite" },
+    { ja: "新たに導入された規則は、研究者が必要なデータを自由に利用するのを妨げかねません。", answer: "The newly introduced regulations may well keep researchers from accessing the necessary data freely.", words: ["accessing", "data", "freely", "from", "introduced", "keep", "may", "necessary", "newly", "regulations", "researchers", "the", "the", "well", "whereas"], unused: "whereas" },
+    { ja: "周囲からの激しい批判でさえ、彼女が自分の判断に従って行動するのを止めることはできませんでした。", answer: "Even the severe criticism from those around her could not keep her from acting according to her own judgment.", words: ["according", "acting", "around", "could", "criticism", "even", "from", "from", "her", "her", "judgment", "keep", "not", "own", "severe", "the", "those", "to", "because"], unused: "because" },
+    { ja: "もし安全確認が適切に行われていなかったら、その装置でも作業員が重大な事故を起こすのを防げなかったかもしれません。", answer: "Even the device might not have kept the workers from causing a serious accident if the safety checks had not been carried out properly.", words: ["a", "accident", "been", "carried", "causing", "checks", "device", "even", "from", "had", "have", "if", "kept", "might", "not", "not", "out", "properly", "safety", "serious", "the", "the", "the", "workers", "whenever"], unused: "whenever" },
+    { ja: "長年にわたって身につけた経験が、予期せぬ事態に直面しても彼に冷静さを失わせませんでした。", answer: "The experience he had gained over the years kept him from losing his composure when faced with the unexpected situation.", words: ["composure", "experience", "faced", "from", "gained", "had", "he", "him", "his", "kept", "losing", "over", "situation", "the", "the", "the", "unexpected", "when", "with", "years", "whether"], unused: "whether" },
+    { ja: "予算がさらに削減されれば、学校は、それを必要とする生徒に十分な支援を提供できなくなるでしょう。", answer: "Further budget cuts will keep the school from providing adequate support for students who need it.", words: ["adequate", "budget", "cuts", "for", "from", "further", "it", "keep", "need", "providing", "school", "students", "support", "the", "who", "will", "whose"], unused: "whose" },
+    { ja: "彼が事実を隠そうとしたことも、私たちが何かがおかしいと疑うのを止めることはできませんでした。", answer: "His attempt to hide the facts did not keep us from suspecting that something was wrong.", words: ["attempt", "did", "facts", "from", "hide", "his", "keep", "not", "something", "suspecting", "that", "the", "to", "us", "was", "wrong", "since"], unused: "since" },
+    { ja: "計画の徹底的な見直しが実施されていれば、担当者は同じ判断ミスを繰り返さずに済んだかもしれません。", answer: "A thorough review of the plan might have kept the officials in charge from repeating the same error in judgment if it had been carried out.", words: ["a", "been", "carried", "charge", "error", "from", "had", "have", "if", "in", "in", "it", "judgment", "kept", "might", "of", "officials", "out", "plan", "repeating", "review", "same", "the", "the", "the", "thorough", "although"], unused: "although" },
+    { ja: "彼女の冷静な態度のおかげで、他のメンバーは感情的に反応せずに済みました。", answer: "Her calm attitude kept the other members from reacting emotionally.", words: ["attitude", "calm", "emotionally", "from", "her", "kept", "members", "other", "reacting", "the", "unless"], unused: "unless" },
+    { ja: "たとえ法律が改正されたとしても、それだけでは企業が同じ慣行を続けるのを防ぐには十分でないかもしれません。", answer: "Even if the law is revised, that alone may not be enough to keep companies from continuing the same practice.", words: ["alone", "be", "companies", "continuing", "enough", "even", "from", "if", "is", "keep", "law", "may", "not", "practice", "revised", "same", "that", "the", "the", "to", "despite"], unused: "despite" }
   ]
 };
 
 worksheetDefinitions["keep-from-ing-order"] = {
-  label: "物主構文 keep（人＋from＋V-ing・整序英作文）",
-  title: "物主構文 keep＋人＋from＋V-ing　整序英作文",
-  instruction: "日本語に合う英文になるように、（　）内の語句を並べ替えなさい。文頭に来る語も小文字で示しています。",
+  label: "keep（人＋from＋V-ing・整序英作文）",
+  title: "keep＋人＋from＋V-ing　整序英作文",
+  instruction: "日本語に合う英文になるように、（　）内の語句を並べ替えなさい。文頭に来る語も小文字で示しています。難関編には不要語が1語あります。",
   answerNote: "語順は「主語＋keep／keeps／kept＋人＋from＋V-ing」です。",
   type: "english-order",
   difficulties: {
     basic: { label: "基礎", counts: [5, 10, 12], description: "中学修了程度の語彙。語句単位を中心に基本語順を確認します。" },
     standard: { label: "標準", counts: [5, 10, 12], description: "時制・助動詞や少し長い目的語を含む問題です。" },
     advanced: { label: "発展", counts: [5, 10, 12], description: "完了形・仮定法・長い語句を含む問題です。" },
-    hard: { label: "難関", counts: [5, 10, 12], description: "複雑な主語・条件節・完了形を組み合わせた問題です。" }
+    hard: { label: "難関", counts: [5, 10, 12], description: "高校卒業・共通テスト程度。単語単位に分割し、不要語を1語加えます。" }
   }
 };
 
@@ -78,7 +78,7 @@ const keepPresentParticipleOptionV7 = worksheetTypeSelect.querySelector('option[
 if (keepPresentParticipleOptionV7 && !worksheetTypeSelect.querySelector('option[value="keep-from-ing-order"]')) {
   const option = document.createElement("option");
   option.value = "keep-from-ing-order";
-  option.textContent = "物主構文 keep（人＋from＋V-ing）― 整序英作文";
+  option.textContent = "keep（人＋from＋V-ing）― 整序英作文";
   keepPresentParticipleOptionV7.insertAdjacentElement("afterend", option);
 }
 
@@ -103,7 +103,7 @@ appendEnglishAnswer = function appendEnglishAnswerV7(fragment, question, number,
   answer.innerHTML = `<b>${number}. ${question.answer}</b>`;
   const structure = document.createElement("p");
   structure.className = "answer-explanation";
-  structure.textContent = "主語＋keep／keeps／kept＋人＋from＋V-ing";
+  structure.textContent = `主語＋keep／keeps／kept＋人＋from＋V-ing${question.unused ? `（不要語：${question.unused}）` : ""}`;
   item.append(answer, structure);
   fragment.appendChild(item);
 };

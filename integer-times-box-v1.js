@@ -19,6 +19,7 @@
   const statusMessage = document.getElementById("statusMessage");
   const problemPage = document.querySelector(".problem-page");
   const answerPage = document.querySelector(".answer-page");
+  const answerTitle = answerPage.querySelector(".worksheet-heading h2");
 
   const ITEMS = [
     { multiplier: 2, result: 1, numerator: 1, denominator: 2 },
@@ -72,6 +73,7 @@
 
   function clearOwnMode() {
     problemPage.classList.remove("integer-times-box-page");
+    if (answerTitle.textContent === "解答") answerTitle.textContent = "解答・解説";
   }
 
   function updateControls() {
@@ -85,6 +87,7 @@
 
     difficultySelect.value = "basic";
     problemTitle.textContent = "問題";
+    answerTitle.textContent = "解答";
     instruction.textContent = "● 次の□に入る数を、分数で答えましょう。";
     answerNote.textContent = "";
     countGuide.textContent = "16問・2列×8段の固定レイアウトです。";

@@ -49,9 +49,9 @@ const preventFromIngQuestions = {
     { ja: "彼がどれほど疲れていたとしても、責任感が彼に仕事を途中で投げ出させませんでした。", answer: "However tired he was, his sense of responsibility prevented him from abandoning the task halfway through.", words: ["abandoning","halfway","he","him","his","however","responsibility","sense","task","the","through","tired","unless","prevented","from","of","was"], unused: "unless" },
     { ja: "その情報が事前に共有されていれば、何人かの参加者が同じ間違いをするのを防げたかもしれません。", answer: "That information could have prevented several participants from making the same mistake if it had been shared in advance.", words: ["advance","been","could","despite","from","had","have","if","information","it","making","participants","prevented","same","several","shared","mistake","that","the","in"], unused: "despite" },
     { ja: "新たに導入された規則は、研究者が必要なデータを自由に利用するのを妨げかねません。", answer: "The newly introduced regulations may well prevent researchers from accessing the necessary data freely.", words: ["accessing","data","freely","from","introduced","may","necessary","newly","prevent","regulations","researchers","the","the","well","whereas"], unused: "whereas" },
-    { ja: "周囲からの激しい批判でさえ、彼女が自分の判断に従って行動するのを止めることはできませんでした。", answer: "Even the severe criticism from those around her could not prevent her from acting according to her own judgment.", words: ["according","acting","around","because","could","criticism","even","from","her","her","judgment","not","own","prevent","severe","the","those","to"], unused: "because" },
+    { ja: "周囲からの激しい批判でさえ、彼女が自分の判断に従って行動するのを止めることはできませんでした。", answer: "Even the severe criticism from those around her could not prevent her from acting according to her own judgment.", words: ["according","acting","around","because","could","criticism","even","from","from","her","her","judgment","not","own","prevent","severe","the","those","to"], unused: "because" },
     { ja: "安全確認が適切に行われていなかったら、その装置でさえ、作業員が重大な事故を起こすのを防げなかったかもしれません。", answer: "Even the device might not have prevented the workers from causing a serious accident if the safety checks had not been carried out properly.", words: ["a","accident","been","carried","causing","checks","device","even","from","had","have","if","might","not","not","out","prevented","properly","safety","serious","the","the","the","whenever","workers"], unused: "whenever" },
-    { ja: "長年にわたって身につけた経験が、予期せぬ事態に直面しても、彼が冷静さを失うのを防ぎました。", answer: "The experience he had gained over the years prevented him from losing his composure when faced with an unexpected situation.", words: ["an","composure","experience","faced","from","gained","had","he","him","his","losing","over","prevented","situation","the","the","unexpected","when","whether","years"], unused: "whether" },
+    { ja: "長年にわたって身につけた経験が、予期せぬ事態に直面しても、彼が冷静さを失うのを防ぎました。", answer: "The experience he had gained over the years prevented him from losing his composure when faced with an unexpected situation.", words: ["an","composure","experience","faced","from","gained","had","he","him","his","losing","over","prevented","situation","the","the","unexpected","when","with","whether","years"], unused: "whether" },
     { ja: "予算がさらに削減されれば、学校は、それを必要とする生徒に十分な支援を提供できなくなるでしょう。", answer: "Further budget cuts will prevent the school from providing adequate support for students who need it.", words: ["adequate","budget","cuts","for","from","further","need","prevent","providing","school","students","support","the","who","whose","will","it"], unused: "whose" },
     { ja: "彼が事実を隠そうとしたことも、私たちが何かがおかしいと疑うのを止めることはできませんでした。", answer: "His attempt to hide the facts did not prevent us from suspecting that something was wrong.", words: ["attempt","did","facts","from","hide","his","not","prevent","since","something","suspecting","that","the","to","us","was","wrong"], unused: "since" },
     { ja: "計画が徹底的に見直されていれば、担当者は同じ判断ミスを繰り返さずに済んだかもしれません。", answer: "A thorough review of the plan might have prevented the officials in charge from repeating the same error in judgment if it had been carried out.", words: ["a","although","been","carried","charge","error","from","had","have","if","in","in","it","judgment","might","officials","of","out","plan","prevented","repeating","review","same","the","the","the","thorough"], unused: "although" },
@@ -61,8 +61,8 @@ const preventFromIngQuestions = {
 };
 
 worksheetDefinitions["prevent-from-ing-order"] = {
-  label: "物主構文 prevent（人＋from＋V-ing・整序英作文）",
-  title: "物主構文 prevent＋人＋from＋V-ing　整序英作文",
+  label: "prevent（人＋from＋V-ing・整序英作文）",
+  title: "prevent＋人＋from＋V-ing　整序英作文",
   instruction: "日本語に合う英文になるように、（　）内の語句を並べ替えなさい。文頭に来る語も小文字で示しています。難関編には不要語が1語あります。",
   answerNote: "語順は「主語＋prevent／prevents／prevented＋人＋from＋V-ing」です。",
   type: "english-order",
@@ -78,7 +78,7 @@ const keepFromOptionV8 = worksheetTypeSelect.querySelector('option[value="keep-f
 if (keepFromOptionV8 && !worksheetTypeSelect.querySelector('option[value="prevent-from-ing-order"]')) {
   const option = document.createElement("option");
   option.value = "prevent-from-ing-order";
-  option.textContent = "物主構文 prevent（人＋from＋V-ing）― 整序英作文";
+  option.textContent = "prevent（人＋from＋V-ing）― 整序英作文";
   keepFromOptionV8.insertAdjacentElement("afterend", option);
 }
 

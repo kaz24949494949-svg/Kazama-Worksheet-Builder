@@ -77,21 +77,21 @@ function rateSelfWordProblem(q){
   if(q.kind==="rate"){
     return pickRateSelf([
       `${c.base}は${q.base}${c.unit}、${c.compared}は${q.compared}${c.unit}です。${c.compared}は${c.base}のどれだけにあたるか、小数で表しましょう。`,
-      `${c.base}${q.base}${c.unit}のうち、${c.compared}は${q.compared}${c.unit}です。このときの割合を小数で求めましょう。`,
+      `${c.base}は全部で${q.base}${c.unit}です。そのうち、${c.compared}は${q.compared}${c.unit}です。このときの割合を小数で求めましょう。`,
       `${c.compared}が${q.compared}${c.unit}、${c.base}が${q.base}${c.unit}です。${c.compared}の${c.base}に対する割合を小数で求めましょう。`
     ]);
   }
   if(q.kind==="compared"){
     return pickRateSelf([
       `${c.base}は${q.base}${c.unit}です。${c.compared}は${c.base}の${q.rate}倍にあたります。${c.compared}を求めましょう。`,
-      `${c.base}${q.base}${c.unit}を1とみると、${c.compared}は${q.rate}にあたります。${c.compared}は何${c.unit}ですか。`,
+      `${c.base}は${q.base}${c.unit}です。${c.compared}は、その${q.rate}倍にあたります。${c.compared}は何${c.unit}ですか。`,
       `${c.compared}は、${q.base}${c.unit}ある${c.base}の${q.rate}倍です。${c.compared}は何${c.unit}になりますか。`
     ]);
   }
   return pickRateSelf([
     `${c.compared}は${q.compared}${c.unit}です。これは${c.base}の${q.rate}倍にあたります。${c.base}を求めましょう。`,
-    `${c.compared}${q.compared}${c.unit}は、${c.base}を1としたとき${q.rate}にあたります。${c.base}は何${c.unit}ですか。`,
-    `${c.base}の${q.rate}倍が${q.compared}${c.unit}の${c.compared}です。${c.base}は何${c.unit}ですか。`
+    `${c.compared}は${q.compared}${c.unit}で、${c.base}の${q.rate}倍にあたります。${c.base}は何${c.unit}ですか。`,
+    `${c.base}の${q.rate}倍が、${q.compared}${c.unit}の${c.compared}にあたります。${c.base}は何${c.unit}ですか。`
   ]);
 }
 

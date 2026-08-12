@@ -51,15 +51,12 @@
   function createBlankFraction(denominator) {
     const fraction = document.createElement("span");
     fraction.className = "integer-equals-fraction-expression";
-
     const top = document.createElement("span");
     top.className = "integer-equals-fraction-numerator";
     top.textContent = "□";
-
     const bottom = document.createElement("span");
     bottom.className = "integer-equals-fraction-denominator";
     bottom.textContent = String(denominator);
-
     fraction.append(top, bottom);
     return fraction;
   }
@@ -72,11 +69,13 @@
   }
 
   function clearOwnMode() {
+    // 共通タイトルは選択された教材側が決める。
+    // 非選択教材がここでタイトルを戻すと、イベント順によって
+    // 選択中の分数教材の「解答」を壊すため、専用クラスだけ外す。
     problemPage.classList.remove("integer-equals-fraction-page");
     answerPage.classList.remove("integer-equals-fraction-answer-page");
     questions.classList.remove("integer-equals-fraction-questions");
     answers.classList.remove("integer-equals-fraction-answers");
-    if (answerTitle.textContent === "解答") answerTitle.textContent = "解答・解説";
   }
 
   function updateControls() {
@@ -109,41 +108,31 @@
 
     ITEMS.forEach((item, index) => {
       const number = index + 1;
-
       const problem = document.createElement("div");
       problem.className = "fraction-box-question-item integer-equals-fraction-item";
-
       const problemNumber = document.createElement("span");
       problemNumber.className = "fraction-box-number";
       problemNumber.textContent = circledNumber(number);
-
       const equation = document.createElement("span");
       equation.className = "integer-equals-fraction-equation";
-
       const integerPart = document.createElement("span");
       integerPart.className = "integer-equals-fraction-integer";
       integerPart.textContent = `${item.integer}＝`;
-
       equation.append(integerPart, createBlankFraction(item.denominator));
-
       const response = document.createElement("span");
       response.className = "fraction-box-response integer-equals-fraction-response";
       response.textContent = "□＝";
-
       problem.append(problemNumber, equation, response);
       questionFragment.appendChild(problem);
 
       const answer = document.createElement("div");
       answer.className = "fraction-box-answer-item integer-equals-fraction-answer-item";
-
       const answerNumber = document.createElement("span");
       answerNumber.className = "fraction-box-number";
       answerNumber.textContent = circledNumber(number);
-
       const answerValue = document.createElement("span");
       answerValue.className = "integer-equals-fraction-answer-value";
       answerValue.textContent = `□＝${item.answer}`;
-
       answer.append(answerNumber, answerValue);
       answerFragment.appendChild(answer);
     });

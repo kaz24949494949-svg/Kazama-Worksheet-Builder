@@ -75,11 +75,17 @@ function selectRateSelfQuestions(relations,count){
 function rateSelfWordProblem(q){
   const c=q.context;
   if(q.kind==="rate"){
-    return pickRateSelf([
+    const comparisonSafe=[
       `${c.base}は${q.base}${c.unit}、${c.compared}は${q.compared}${c.unit}です。${c.compared}は${c.base}のどれだけにあたるか、小数で表しましょう。`,
-      `${c.base}は全部で${q.base}${c.unit}です。そのうち、${c.compared}は${q.compared}${c.unit}です。このときの割合を小数で求めましょう。`,
       `${c.compared}が${q.compared}${c.unit}、${c.base}が${q.base}${c.unit}です。${c.compared}の${c.base}に対する割合を小数で求めましょう。`
-    ]);
+    ];
+    if(c.mode==="part"){
+      return pickRateSelf([
+        ...comparisonSafe,
+        `${c.base}は全部で${q.base}${c.unit}です。そのうち、${c.compared}は${q.compared}${c.unit}です。このときの割合を小数で求めましょう。`
+      ]);
+    }
+    return pickRateSelf(comparisonSafe);
   }
   if(q.kind==="compared"){
     return pickRateSelf([

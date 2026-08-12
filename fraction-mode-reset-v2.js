@@ -15,41 +15,47 @@
     "integer-times-box-page",
     "integer-equals-fraction-page",
     "integer-over-box-page",
-    "fraction-to-division-page"
+    "fraction-to-division-page",
+    "multiple-page"
   ];
 
   const answerClasses = [
     "fraction-box-answer-page",
     "integer-equals-fraction-answer-page",
     "integer-over-box-answer-page",
-    "fraction-to-division-answer-page"
+    "fraction-to-division-answer-page",
+    "multiple-answer-page"
   ];
 
   const questionClasses = [
     "fraction-box-questions",
     "integer-equals-fraction-questions",
     "integer-over-box-questions",
-    "fraction-to-division-questions"
+    "fraction-to-division-questions",
+    "multiple-questions",
+    "english-questions"
   ];
 
   const answerListClasses = [
     "fraction-box-answers",
     "integer-equals-fraction-answers",
     "integer-over-box-answers",
-    "fraction-to-division-answers"
+    "fraction-to-division-answers",
+    "multiple-answers",
+    "english-answers"
   ];
 
-  function clearFractionModes() {
+  function clearWorksheetModes() {
     problemPage.classList.remove(...problemClasses);
     answerPage.classList.remove(...answerClasses);
     questions.classList.remove(...questionClasses);
     answers.classList.remove(...answerListClasses);
   }
 
-  // Register on document in the capture phase. This script is loaded before every
-  // worksheet-specific script, so this reset runs before later document-level
-  // handlers that may call stopImmediatePropagation().
+  // This script is loaded before every worksheet-specific script. Registering on
+  // document in the capture phase guarantees the cleanup runs before later handlers
+  // that may stop propagation while switching worksheet types.
   document.addEventListener("change", (event) => {
-    if (event.target === typeSelect) clearFractionModes();
+    if (event.target === typeSelect) clearWorksheetModes();
   }, true);
 })();

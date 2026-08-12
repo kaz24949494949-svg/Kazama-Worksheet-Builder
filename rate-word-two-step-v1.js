@@ -3,11 +3,11 @@
 worksheetDefinitions["rate-word-two-step"]={
   label:"割合の文章題→2段階で解く",
   title:"割合の文章題 → 2段階で解く",
-  instruction:"文章を読み、まず必要な合計を求めましょう。次に、その結果を使って割合の式を立て、答えを求めましょう。",
-  answerNote:"①で必要な量をまとめ、②で割合の3用法（割合・比べる量・もとにする量）の式を立てます。",
+  instruction:"文章を読み、まず必要な合計を求めましょう。次に、その結果を使って割合を使う式を立て、答えを求めましょう。",
+  answerNote:"①で必要な量をまとめ、②で割合の3用法（割合・比べる量・もとにする量）を使う式を立てます。",
   type:"math",
   difficulties:{
-    basic:{label:"基礎",rateHundredths:[20,30,40,50,60,70,80,90],multipliers:[2,3,4,5,6],counts:[3,4],description:"小数第1位まで。合計を1回求めてから、割合の式を立てます。"},
+    basic:{label:"基礎",rateHundredths:[20,30,40,50,60,70,80,90],multipliers:[2,3,4,5,6],counts:[3,4],description:"小数第1位まで。合計を1回求めてから、割合を使う式を立てます。"},
     standard:{label:"標準",rateHundredths:[15,25,35,45,55,65,75,85,95],multipliers:[2,3,4,5,6,7],counts:[3,5,6],description:"小数第2位までを含み、2段階の数量関係を整理して解きます。"},
     advanced:{label:"発展",rateHundredths:[12,18,24,32,48,72,105,125,150,175,225],multipliers:[2,3,4,5,6,7],counts:[3,5,6],description:"1をこえる割合も含め、合計→3用法の2段階で解きます。"}
   }

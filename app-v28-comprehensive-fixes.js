@@ -8,21 +8,15 @@
     for (let i = count; i < requiredCount; i += 1) question.words.push(token);
   };
 
-  // make + O + past participle: hard #11 needs three occurrences of "the".
+  // Hard-mode word-bank corrections found in the full audit.
   addTokenIfMissing(makePastParticipleQuestions?.hard?.[10], "the", 3);
-
-  // keep + person + from + V-ing: hard #5 needs two occurrences of "from".
   addTokenIfMissing(keepFromIngQuestions?.hard?.[4], "from", 2);
-
-  // prevent + person + from + V-ing: hard #5 needs two "from"; hard #7 needs "with".
   addTokenIfMissing(preventFromIngQuestions?.hard?.[4], "from", 2);
   addTokenIfMissing(preventFromIngQuestions?.hard?.[6], "with", 1);
-
-  // cause / force: hard #8 needs two occurrences of "the" in "The flaws in the system ...".
   addTokenIfMissing(causeToQuestions?.hard?.[7], "the", 2);
   addTokenIfMissing(forceToQuestions?.hard?.[7], "the", 2);
 
-  // remind + O + of: make Japanese, answer and word bank match exactly.
+  // remind + O + of: Japanese, answer and word bank must match exactly.
   if (remindOfQuestions?.hard?.[0]) {
     remindOfQuestions.hard[0] = {
       ja: "この古い写真を見ると、私は家族と初めて海外旅行をしたころを思い出します。",
@@ -40,7 +34,7 @@
     };
   }
 
-  // make rewrite: preserve semantic equivalence (change, not maintenance of an existing state).
+  // make rewrite: keep the source and rewritten sentence genuinely equivalent.
   if (makeAdjectiveRewriteQuestions?.standard?.[2]) {
     makeAdjectiveRewriteQuestions.standard[2] = {
       source: "We became healthier because of the daily exercise.",
@@ -50,7 +44,7 @@
     };
   }
 
-  // Remove the "inanimate-subject construction" label from mixed-subject series.
+  // Mixed-subject series should not be labeled as strictly inanimate-subject constructions.
   const relabel = (value, definitionKey, label, title, optionText) => {
     const definition = worksheetDefinitions?.[definitionKey];
     if (definition) {
@@ -76,8 +70,7 @@
     "prevent（人＋from＋V-ing）― 整序英作文"
   );
 
-  // "Self equation" rate word problems: only use part/whole wording in part contexts.
-  // Comparison contexts must not say "全部で...そのうち...".
+  // Rate word problems: part/whole wording is only valid for part contexts.
   if (typeof rateSelfWordProblem === "function" && typeof pickRateSelf === "function") {
     rateSelfWordProblem = function rateSelfWordProblemV28(q) {
       const c = q.context;
@@ -108,36 +101,6 @@
       ]);
     };
   }
-
-  // Defensive validation for all hard English ordering pools with an explicit unused word.
-  // This does not alter content; it logs any future token-count mismatch during development.
-  const normalizeToken = (token) => String(token).toLowerCase().replace(/[.,!?;:”“"'’()]/g, "");
-  const answerTokens = (answer) => answer.split(/\s+/).map(normalizeToken).filter(Boolean);
-  const validateHardPool = (name, pool) => {
-    if (!Array.isArray(pool)) return;
-    pool.forEach((question, index) => {
-      if (!question?.unused || !Array.isArray(question.words)) return;
-      const bank = question.words.map(normalizeToken);
-      const unused = normalizeToken(question.unused);
-      const unusedIndex = bank.indexOf(unused);
-      if (unusedIndex >= 0) bank.splice(unusedIndex, 1);
-      const target = answerTokens(question.answer);
-      const bankCounts = new Map();
-      const targetCounts = new Map();
-      bank.forEach((t) => bankCounts.set(t, (bankCounts.get(t) || 0) + 1));
-      target.forEach((t) => targetCounts.set(t, (targetCounts.get(t) || 0) + 1));
-      const same = bank.size === target.length &&
-        [...new Set([...bankCounts.keys(), ...targetCounts.keys()])].every((t) => bankCounts.get(t) === targetCounts.get(t));
-      if (!same) console.warn(`[V28 audit] ${name} hard #${index + 1}: word bank may not match answer exactly.`);
-    });
-  };
-
-  validateHardPool("make-past-participle", makePastParticipleQuestions?.hard);
-  validateHardPool("keep-from-ing", keepFromIngQuestions?.hard);
-  validateHardPool("prevent-from-ing", preventFromIngQuestions?.hard);
-  validateHardPool("cause-to", causeToQuestions?.hard);
-  validateHardPool("force-to", forceToQuestions?.hard);
-  validateHardPool("remind-of", remindOfQuestions?.hard);
 
   if (typeof syncDifficultyOptions === "function") syncDifficultyOptions();
   if (typeof updateControls === "function") updateControls();

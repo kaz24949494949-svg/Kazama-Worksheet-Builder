@@ -80,7 +80,7 @@ const makeAdjectiveRewriteQuestions = {
   standard: [
     { source: "He became strong because of the experience.", prompt: "The experience（　　　）（　　　）（　　　）.", blanks: "made / him / strong", answer: "The experience made him strong." },
     { source: "She became nervous because of the news.", prompt: "The news（　　　）（　　　）（　　　）.", blanks: "made / her / nervous", answer: "The news made her nervous." },
-    { source: "We stayed healthy because of the daily exercise.", prompt: "The daily exercise（　　　）（　　　）（　　　）.", blanks: "made / us / healthy", answer: "The daily exercise made us healthy." },
+    { source: "We became healthier because of the daily exercise.", prompt: "The daily exercise（　　　）（　　　）（　　　）.", blanks: "made / us / healthier", answer: "The daily exercise made us healthier." },
     { source: "The town became safe because of the new rule.", prompt: "The new rule（　　　）（　　　）（　　　）.", blanks: "made / the town / safe", answer: "The new rule made the town safe." },
     { source: "The song became popular because of her beautiful voice.", prompt: "Her beautiful voice（　　　）（　　　）（　　　）.", blanks: "made / the song / popular", answer: "Her beautiful voice made the song popular." },
     { source: "I became confused because of the difficult question.", prompt: "The difficult question（　　　）（　　　）（　　　）.", blanks: "made / me / confused", answer: "The difficult question made me confused." },
@@ -124,7 +124,7 @@ const worksheetDefinitions = {
     answerNote: "原因を表す語句を主語にし、「made＋目的語＋形容詞」の順に書き換えます。", type: "english-rewrite",
     difficulties: {
       basic: { label: "基礎", counts: [5, 10, 12], description: "be動詞＋形容詞＋because ofの文を、madeを使う文へ書き換えます。" },
-      standard: { label: "標準", counts: [5, 10, 12], description: "became・stayedなどを含む文を、madeを使う文へ書き換えます。" },
+      standard: { label: "標準", counts: [5, 10, 12], description: "becameなどを含む文を、madeを使う文へ書き換えます。" },
       advanced: { label: "発展", counts: [5, 10, 12], description: "比較級、抽象的な主語、長い語句を含む文を書き換えます。" }
     }
   },

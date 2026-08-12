@@ -116,15 +116,15 @@ const makePastParticipleQuestions = {
     { ja: "私たちは白熱した公開討論の中で、自分たちの意見を聞いてもらいました。", answer: "We made ourselves heard during the heated public debate.", words: ["debate", "during", "heard", "hearing", "heated", "made", "ourselves", "public", "the", "we"], unused: "hearing" },
     { ja: "彼女は言葉を慎重に選ぶことで、自分の意図を明確に理解してもらいました。", answer: "She made herself clearly understood by carefully choosing her words.", words: ["by", "carefully", "choosing", "clearly", "clarity", "her", "herself", "made", "she", "understood", "words"], unused: "clarity" },
     { ja: "彼は機械の絶え間ない騒音に負けず、自分の声を聞いてもらいました。", answer: "He made himself heard over the constant noise of the machinery.", words: ["constant", "he", "heard", "hearing", "himself", "machinery", "made", "noise", "of", "over", "the", "the"], unused: "hearing" },
-    { ja: "その公式声明によって、政府の立場が国際社会に知られるようになりました。", answer: "The official statement made the government’s position known to the international community.", words: ["community", "government’s", "international", "knowledge", "known", "made", "official", "position", "statement", "the", "the", "to"], unused: "knowledge" },
+    { ja: "その公式声明によって、政府の立場が国際社会に知られるようになりました。", answer: "The official statement made the government’s position known to the international community.", words: ["community", "government’s", "international", "knowledge", "known", "made", "official", "position", "statement", "the", "the", "the", "to"], unused: "knowledge" },
     { ja: "それらの写真によって、状況の緊急性が広く認識されるようになりました。", answer: "The photographs made the urgency of the situation widely recognized.", words: ["made", "photographs", "recognition", "recognized", "situation", "the", "the", "the", "urgency", "widely", "of"], unused: "recognition" }
   ]
 };
 
 Object.assign(makeAdjectiveQuestions, finalizedMakeAdjectiveQuestions);
 
-worksheetDefinitions["make-adjective-order"].label = "物主構文 make（目的語＋形容詞・整序英作文）";
-worksheetDefinitions["make-adjective-order"].title = "物主構文 make＋O＋形容詞　整序英作文";
+worksheetDefinitions["make-adjective-order"].label = "make（目的語＋形容詞・整序英作文）";
+worksheetDefinitions["make-adjective-order"].title = "make＋O＋形容詞　整序英作文";
 worksheetDefinitions["make-adjective-order"].difficulties = {
   basic: { label: "基礎", counts: [5, 10, 12], description: "中学修了語彙。語句単位を中心に、make＋O＋形容詞の語順を確認します。" },
   standard: { label: "標準", counts: [5, 10, 12], description: "高校初級語彙。語句単位6問と単語単位6問を混在させます。" },
@@ -133,13 +133,13 @@ worksheetDefinitions["make-adjective-order"].difficulties = {
 };
 
 worksheetDefinitions["make-past-participle-order"] = {
-  label: "物主構文 make（目的語＋過去分詞・整序英作文）",
-  title: "物主構文 make＋O＋過去分詞　整序英作文",
+  label: "make（目的語＋過去分詞・整序英作文）",
+  title: "make＋O＋過去分詞　整序英作文",
   instruction: "日本語に合う英文になるように、（　）内の語句を並べ替えなさい。文頭に来る語も小文字で示しています。難関編には不要語が1語あります。",
   answerNote: "語順は「主語＋make／makes／made＋目的語＋過去分詞」です。目的語と過去分詞には受け身の関係があります。",
   type: "english-order-past",
   difficulties: {
-    basic: { label: "基礎", counts: [5, 10, 12], description: "中学修了語彙。物主構文を中心に、make oneself understood／heardも扱います。" },
+    basic: { label: "基礎", counts: [5, 10, 12], description: "基本的な make＋O＋過去分詞と、make oneself understood／heard を扱います。" },
     standard: { label: "標準", counts: [5, 10, 12], description: "高校初級語彙。語句単位6問と単語単位6問を混在させます。" },
     advanced: { label: "発展", counts: [5, 10, 12], description: "英検準2級程度。全問を単語単位に分割します。" },
     hard: { label: "難関", counts: [5, 10, 12], description: "高校卒業・共通テスト程度。全問を単語単位にし、不要語を1語加えます。" }
@@ -148,10 +148,10 @@ worksheetDefinitions["make-past-participle-order"] = {
 
 const adjectiveOption = worksheetTypeSelect.querySelector('option[value="make-adjective-order"]');
 if (adjectiveOption) {
-  adjectiveOption.textContent = "物主構文 make（目的語＋形容詞）― 整序英作文";
+  adjectiveOption.textContent = "make（目的語＋形容詞）― 整序英作文";
   const pastOption = document.createElement("option");
   pastOption.value = "make-past-participle-order";
-  pastOption.textContent = "物主構文 make（目的語＋過去分詞）― 整序英作文";
+  pastOption.textContent = "make（目的語＋過去分詞）― 整序英作文";
   adjectiveOption.insertAdjacentElement("afterend", pastOption);
 }
 

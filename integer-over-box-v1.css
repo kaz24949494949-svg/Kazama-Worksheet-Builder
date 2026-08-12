@@ -48,10 +48,6 @@
   white-space:nowrap;
 }
 
-.integer-over-box-answers{
-  margin-top:30px !important;
-}
-
 @media print{
   .integer-over-box-item{
     grid-template-columns:9mm 44mm auto;
@@ -74,9 +70,5 @@
   .integer-over-box-answer-value{
     min-width:28mm;
     font-size:18pt;
-  }
-
-  .integer-over-box-answers{
-    margin-top:8mm !important;
   }
 }

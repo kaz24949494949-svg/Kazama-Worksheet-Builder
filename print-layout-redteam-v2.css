@@ -1,0 +1,19 @@
+@media print {
+  .problem-page { break-after: page !important; page-break-after: always !important; }
+  .answer-page { break-before: page !important; page-break-before: always !important; }
+  body.print-rate-select-stable #questions { columns: auto !important; column-count: auto !important; column-width: auto !important; column-gap: 0 !important; display: block !important; white-space: normal !important; }
+  body.print-rate-select-stable .rate-select-question { display: inline-block !important; width: 48.5% !important; margin: 0 1% 12px 0 !important; padding: 0 !important; vertical-align: top !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+  body.print-rate-select-stable .rate-select-prompt { margin: 0 0 5px !important; line-height: 1.45 !important; }
+  body.print-rate-select-stable .rate-select-choice-line,
+  body.print-rate-select-stable .rate-select-equation-line,
+  body.print-rate-select-stable .rate-select-answer-line { margin: 4px 0 !important; line-height: 1.4 !important; }
+  body.print-rate-select-stable .rate-select-choice-blank { width: 225px !important; }
+  body.print-rate-select-stable .rate-select-equation-blank { width: 205px !important; }
+  body.print-rate-select-stable .rate-select-answer-blank { width: 135px !important; }
+  body.print-rate-select-stable .problem-page .worksheet-heading { padding-bottom: 7px !important; }
+  body.print-rate-select-stable .problem-page .worksheet-heading h2 { font-size: 19px !important; line-height: 1.2 !important; }
+  body.print-rate-select-stable .problem-page .worksheet-brand { font-size: 10px !important; }
+  body.print-rate-select-stable .problem-page .worksheet-meta { margin-top: 6px !important; font-size: 11px !important; }
+  body.print-rate-select-stable .problem-page .instruction { margin: 10px 0 !important; padding: 6px 9px !important; font-size: 11px !important; line-height: 1.35 !important; }
+  body.print-rate-select-stable .problem-page #questions { margin-top: 6px !important; padding: 10px !important; font-size: 11px !important; }
+}

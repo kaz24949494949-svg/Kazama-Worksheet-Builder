@@ -19,14 +19,14 @@
     "multiple-system3": {
       label: "倍数強化ワーク 系統3",
       title: "倍数強化ワーク　系統3　単位分数倍",
-      instruction: "Aの①を基準にして、Bの○に入る数を考えましょう。",
-      answerNote: "Aの①の長さは、Bの1区切りと同じです。BがAの何個分かを数えます。",
+      instruction: "A全体を1として、BはAの何分の1の長さかを考えましょう。",
+      answerNote: "Aを同じ長さに分けると、Bはその1区切り分です。BはAの1／□倍になります。",
       mode: "system3"
     }
   };
 
   const difficultySettings = {
-    basic: { label: "基礎", min: 2, max: 9, description: "2個分から9個分までの、見通しやすい整数倍を扱います。" },
+    basic: { label: "基礎", min: 2, max: 9, description: "2個分から9個分までの、見通しやすい関係を扱います。" },
     standard: { label: "標準", min: 3, max: 10, description: "3個分から10個分までを重複なしで扱います。" },
     advanced: { label: "発展", min: 4, max: 11, description: "4個分から11個分までの、長い線分図を扱います。" }
   };
@@ -81,7 +81,9 @@
     instruction.textContent = definition.instruction;
     answerNote.textContent = definition.answerNote;
     difficultyTitle.textContent = settings.label;
-    difficultyDescription.textContent = settings.description;
+    difficultyDescription.textContent = definition.mode === "system3"
+      ? `${settings.min}等分から${settings.max}等分までの単位分数倍を扱います。`
+      : settings.description;
     countGuide.textContent = "A4では8問が標準です。4問・6問も選べます。";
     worksheetDifficulty.textContent = `難易度：${settings.label}`;
     worksheetCount.textContent = `問題数：${countSelect.value}問`;
@@ -151,7 +153,7 @@
     const svg = svgElement("svg", {
       viewBox: "0 0 520 235",
       role: "img",
-      "aria-label": `${multiple}個分の線分図`,
+      "aria-label": mode === "system3" ? `1/${multiple}倍の線分図` : `${multiple}個分の線分図`,
       class: "multiple-diagram"
     });
     const unitWidth = 38;
@@ -167,11 +169,15 @@
       drawSegment(svg, x, 130, multiple, unitWidth, { wholeLabel: "blank", unitLabel: true });
     } else {
       addText(svg, 28, 78, "A", "multiple-row-label", "start");
-      drawSegment(svg, x, 75, 1, unitWidth, { unitLabel: true });
+      drawSegment(svg, x, 75, multiple, unitWidth, { wholeLabel: "1" });
       addText(svg, 28, 183, "B", "multiple-row-label", "start");
-      drawSegment(svg, x, 180, multiple, unitWidth, { wholeLabel: "blank" });
+      drawSegment(svg, x, 180, 1, unitWidth, { wholeLabel: "blank" });
     }
     return svg;
+  }
+
+  function answerText(mode, multiple, number) {
+    return mode === "system3" ? `${number}. 1／${multiple}` : `${number}. ${multiple}`;
   }
 
   function makeMultipleWorksheet() {
@@ -196,7 +202,7 @@
 
       const answer = document.createElement("p");
       answer.className = "multiple-answer-item";
-      answer.textContent = `${index + 1}. ${multiple}`;
+      answer.textContent = answerText(definition.mode, multiple, index + 1);
       answerFragment.appendChild(answer);
     });
 

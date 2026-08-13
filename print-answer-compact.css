@@ -1,5 +1,4 @@
 @media print {
-  /* Always print both worksheet sections as separate A4 pages. */
   .problem-page,
   .answer-page {
     display: block !important;
@@ -16,7 +15,28 @@
     page-break-before: always;
   }
 
-  /* Compact only the answer page enough to fit 15 answers on one page. */
+  /*
+   * Detailed word-problem worksheets can legitimately spill onto a second
+   * problem page. In that case, forcing another page break wastes most of
+   * page 2. JavaScript adds .print-smart-flow only for those long layouts,
+   * allowing the compact answer block to use the remaining space on page 2.
+   */
+  body.print-smart-flow .problem-page {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+
+  body.print-smart-flow .answer-page {
+    break-before: auto !important;
+    page-break-before: auto !important;
+    margin-top: 5mm !important;
+  }
+
+  body.print-smart-flow .answer-page .worksheet-heading {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
   .answer-page .worksheet-heading {
     padding-bottom: 7px;
   }

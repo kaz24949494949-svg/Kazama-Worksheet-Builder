@@ -1,0 +1,1 @@
+Android print fix: rate-select questions use normal block pagination with two-column inline question items; answers remain on a separate page.

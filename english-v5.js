@@ -61,8 +61,8 @@ const makeBareInfinitiveQuestions = {
 };
 
 worksheetDefinitions["make-bare-infinitive-order"] = {
-  label: "物主構文 make（目的語＋動詞の原形・整序英作文）",
-  title: "物主構文 make＋O＋動詞の原形　整序英作文",
+  label: "make（目的語＋動詞の原形・整序英作文）",
+  title: "make＋O＋動詞の原形　整序英作文",
   instruction: "日本語に合う英文になるように、（　）内の語句を並べ替えなさい。文頭に来る語も小文字で示しています。難関編には不要語が1語あります。",
   answerNote: "語順は「主語＋make／makes／made＋目的語＋動詞の原形」です。makeの後の目的語が、その動作を行います。",
   type: "english-order",
@@ -78,7 +78,7 @@ const pastParticipleOption = worksheetTypeSelect.querySelector('option[value="ma
 if (pastParticipleOption && !worksheetTypeSelect.querySelector('option[value="make-bare-infinitive-order"]')) {
   const bareInfinitiveOption = document.createElement("option");
   bareInfinitiveOption.value = "make-bare-infinitive-order";
-  bareInfinitiveOption.textContent = "物主構文 make（目的語＋動詞の原形）― 整序英作文";
+  bareInfinitiveOption.textContent = "make（目的語＋動詞の原形）― 整序英作文";
   pastParticipleOption.insertAdjacentElement("afterend", bareInfinitiveOption);
 }
 

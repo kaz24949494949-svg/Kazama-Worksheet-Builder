@@ -6,6 +6,7 @@
   const answerPage = document.querySelector(".answer-page");
   const questions = document.getElementById("questions");
   const answers = document.getElementById("answers");
+  const answerTitle = answerPage?.querySelector(".worksheet-heading h2");
 
   if (!typeSelect || !problemPage || !answerPage || !questions || !answers) return;
 
@@ -50,6 +51,7 @@
     answerPage.classList.remove(...answerClasses);
     questions.classList.remove(...questionClasses);
     answers.classList.remove(...answerListClasses);
+    if (answerTitle) answerTitle.textContent = "解答・解説";
   }
 
   // This file is loaded before every worksheet-specific script. Capturing the

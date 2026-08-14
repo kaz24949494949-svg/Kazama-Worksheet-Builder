@@ -61,8 +61,8 @@ const keepAdjectiveQuestions = {
 };
 
 worksheetDefinitions["keep-adjective-order"] = {
-  label: "物主構文 keep（目的語＋形容詞・整序英作文）",
-  title: "物主構文 keep＋O＋形容詞　整序英作文",
+  label: "keep（目的語＋形容詞・整序英作文）",
+  title: "keep＋O＋形容詞　整序英作文",
   instruction: "日本語に合う英文になるように、（　）内の語句を並べ替えなさい。文頭に来る語も小文字で示しています。難関編には不要語が1語あります。",
   answerNote: "語順は「主語＋keep／keeps／kept＋目的語＋形容詞」です。",
   type: "english-order",
@@ -78,7 +78,7 @@ const bareInfinitiveOptionV6 = worksheetTypeSelect.querySelector('option[value="
 if (bareInfinitiveOptionV6 && !worksheetTypeSelect.querySelector('option[value="keep-adjective-order"]')) {
   const option = document.createElement("option");
   option.value = "keep-adjective-order";
-  option.textContent = "物主構文 keep（目的語＋形容詞）― 整序英作文";
+  option.textContent = "keep（目的語＋形容詞）― 整序英作文";
   bareInfinitiveOptionV6.insertAdjacentElement("afterend", option);
 }
 

@@ -12,7 +12,7 @@ const depriveOfQuestions = {
     { ja: "その長い病気で、彼は十分な睡眠を取れなくなりました。", answer: "The long illness deprived him of enough sleep.", words: ["him", "the long illness", "of enough sleep", "deprived"] },
     { ja: "その閉鎖で、子どもたちは遊ぶ場所を失いました。", answer: "The closure deprived the children of a place to play.", words: ["the children", "the closure", "of a place to play", "deprived"] },
     { ja: "その盗難で、彼女は大切な持ち物を失いました。", answer: "The theft deprived her of valuable possessions.", words: ["her", "the theft", "of valuable possessions", "deprived"] },
-    { ja: "その嵐で、その村は外部との連絡手段を失いました。", answer: "The storm deprived the village of outside communication.", words: ["the village", "the storm", "of outside communication", "deprived"] },
+    { ja: "その嵐で、その村は外部との連絡手段を失いました。", answer: "The storm deprived the village of communication with the outside world.", words: ["the village", "the storm", "of communication with the outside world", "deprived"] },
     { ja: "その予算削減で、生徒たちは必要な教材を使えなくなりました。", answer: "The budget cut deprived students of necessary materials.", words: ["students", "the budget cut", "of necessary materials", "deprived"] },
     { ja: "その道路閉鎖で、住民は町への直接の交通手段を失いました。", answer: "The road closure deprived residents of direct access to the town.", words: ["residents", "the road closure", "of direct access to the town", "deprived"] }
   ],
@@ -39,8 +39,8 @@ const depriveOfQuestions = {
     { ja: "度重なる遅れによって、地域社会は素早く対応する機会を失いました。", answer: "The repeated delays deprived the community of a chance to respond quickly.", words: ["a", "chance", "community", "delays", "deprived", "of", "quickly", "repeated", "respond", "the", "the", "to"] },
     { ja: "激しい嵐によって、何千もの世帯が数日間電気を使えなくなりました。", answer: "The severe storm deprived thousands of households of electricity for days.", words: ["days", "deprived", "electricity", "for", "households", "of", "of", "severe", "storm", "the", "thousands"] },
     { ja: "その方針変更によって、一部の労働者は重要な給付を失いました。", answer: "The policy change deprived some workers of important benefits.", words: ["benefits", "change", "deprived", "important", "of", "policy", "some", "the", "workers"] },
-    { ja: "信頼できる情報の不足によって、意思決定者は行動のための明確な根拠を得られませんでした。", answer: "The lack of information deprived decision-makers of a clear basis for action.", words: ["a", "action", "basis", "clear", "decision-makers", "deprived", "for", "information", "lack", "of", "of", "the"] },
-    { ja: "橋の破壊によって、いくつかの村は町への主要な連絡路を失いました。", answer: "The destruction of the bridge deprived several villages of their main connection to the city.", words: ["bridge", "city", "connection", "deprived", "destruction", "main", "of", "of", "several", "the", "the", "the", "their", "to", "villages"] },
+    { ja: "情報の不足によって、意思決定者は行動のための明確な根拠を得られませんでした。", answer: "The lack of information deprived decision-makers of a clear basis for action.", words: ["a", "action", "basis", "clear", "decision-makers", "deprived", "for", "information", "lack", "of", "of", "the"] },
+    { ja: "橋の破壊によって、いくつかの村は都市への主要な連絡路を失いました。", answer: "The destruction of the bridge deprived several villages of their main connection to the city.", words: ["bridge", "city", "connection", "deprived", "destruction", "main", "of", "of", "several", "the", "the", "the", "their", "to", "villages"] },
     { ja: "長期の孤立によって、子どもたちは友人との定期的な交流を失いました。", answer: "The long isolation deprived the children of regular contact with their friends.", words: ["children", "contact", "deprived", "friends", "isolation", "long", "of", "regular", "the", "the", "their", "with"] },
     { ja: "裁判所の判断によって、会社は事業を続ける法的権限を失いました。", answer: "The court decision deprived the company of legal authority to continue operating.", words: ["authority", "company", "continue", "court", "decision", "deprived", "legal", "of", "operating", "the", "the", "to"] }
   ],

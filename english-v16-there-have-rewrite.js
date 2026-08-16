@@ -13,7 +13,7 @@ const thereHaveRewriteQuestions = {
     { source: "There are four classrooms on the second floor.", prompt: "The second floor（　　　）（　　　）classrooms.", blanks: "has / four", answer: "The second floor has four classrooms." },
     { source: "There is a computer room in our school.", prompt: "Our school（　　　）（　　　）computer room.", blanks: "has / a", answer: "Our school has a computer room." },
     { source: "There are several shops in the station building.", prompt: "The station building（　　　）（　　　）shops.", blanks: "has / several", answer: "The station building has several shops." },
-    { source: "There is a bus stop near the library.", prompt: "The area near the library（　　　）（　　　）bus stop.", blanks: "has / a", answer: "The area near the library has a bus stop." },
+    { source: "There is a bus stop near the library.", prompt: "The library（　　　）（　　　）bus stop nearby.", blanks: "has / a", answer: "The library has a bus stop nearby." },
     { source: "There are many trees in this park.", prompt: "This park（　　　）（　　　）trees.", blanks: "has / many", answer: "This park has many trees." }
   ],
   standard: [
@@ -26,8 +26,8 @@ const thereHaveRewriteQuestions = {
     { source: "There is a special section for children in the library.", prompt: "The library（　　　）（　　　）special section for children.", blanks: "has / a", answer: "The library has a special section for children." },
     { source: "There are five members on the planning committee.", prompt: "The planning committee（　　　）（　　　）members.", blanks: "has / five", answer: "The planning committee has five members." },
     { source: "There is no parking area at the clinic.", prompt: "The clinic（　　　）（　　　）parking area.", blanks: "has / no", answer: "The clinic has no parking area." },
-    { source: "There are several examples at the end of the chapter.", prompt: "The end of the chapter（　　　）（　　　）examples.", blanks: "has / several", answer: "The end of the chapter has several examples." },
-    { source: "There is a small kitchen next to the meeting room.", prompt: "The area next to the meeting room（　　　）（　　　）small kitchen.", blanks: "has / a", answer: "The area next to the meeting room has a small kitchen." },
+    { source: "There are several examples in the final section of the chapter.", prompt: "The final section of the chapter（　　　）（　　　）examples.", blanks: "has / several", answer: "The final section of the chapter has several examples." },
+    { source: "There is a small kitchen next to the meeting room.", prompt: "The meeting room（　　　）（　　　）small kitchen next to it.", blanks: "has / a", answer: "The meeting room has a small kitchen next to it." },
     { source: "There are many useful features in the new app.", prompt: "The new app（　　　）（　　　）useful features.", blanks: "has / many", answer: "The new app has many useful features." }
   ],
   advanced: [
@@ -38,7 +38,7 @@ const thereHaveRewriteQuestions = {
     { source: "The coastal town had a small fishing port before the new harbor was built.", prompt: "There（　　　）（　　　）small fishing port in the coastal town before the new harbor was built.", blanks: "was / a", answer: "There was a small fishing port in the coastal town before the new harbor was built." },
     { source: "The original plan had two major weaknesses.", prompt: "There（　　　）（　　　）major weaknesses in the original plan.", blanks: "were / two", answer: "There were two major weaknesses in the original plan." },
     { source: "There is a separate entrance for delivery vehicles at the back of the building.", prompt: "The back of the building（　　　）（　　　）separate entrance for delivery vehicles.", blanks: "has / a", answer: "The back of the building has a separate entrance for delivery vehicles." },
-    { source: "There are no reliable records from the earliest period of the settlement.", prompt: "The earliest period of the settlement（　　　）（　　　）reliable records.", blanks: "has / no", answer: "The earliest period of the settlement has no reliable records." },
+    { source: "There are no reliable records from the earliest period of the settlement.", prompt: "The settlement（　　　）（　　　）reliable records from its earliest period.", blanks: "has / no", answer: "The settlement has no reliable records from its earliest period." },
     { source: "There were several serious flaws in the first version of the system.", prompt: "The first version of the system（　　　）（　　　）serious flaws.", blanks: "had / several", answer: "The first version of the system had several serious flaws." },
     { source: "There is a section explaining how personal data is protected in the policy document.", prompt: "The policy document（　　　）（　　　）section explaining how personal data is protected.", blanks: "has / a", answer: "The policy document has a section explaining how personal data is protected." },
     { source: "There are more than fifty species of birds in the wetland reserve.", prompt: "The wetland reserve（　　　）（　　　）than fifty species of birds.", blanks: "has / more", answer: "The wetland reserve has more than fifty species of birds." },
@@ -55,7 +55,7 @@ const thereHaveRewriteQuestions = {
     { source: "There are two independent systems that can provide emergency power at the hospital.", prompt: "The hospital（　　　）（　　　）independent systems that can provide emergency power.", blanks: "has / two", answer: "The hospital has two independent systems that can provide emergency power." },
     { source: "There were no facilities capable of storing the material safely at the site at that time.", prompt: "The site（　　　）（　　　）facilities capable of storing the material safely at that time.", blanks: "had / no", answer: "The site had no facilities capable of storing the material safely at that time." },
     { source: "There is a detailed table showing changes in population by age group in the appendix.", prompt: "The appendix（　　　）（　　　）detailed table showing changes in population by age group.", blanks: "has / a", answer: "The appendix has a detailed table showing changes in population by age group." },
-    { source: "There are several points on which the two versions of the report differ significantly.", prompt: "The two versions of the report（　　　）（　　　）points of significant difference.", blanks: "have / several", answer: "The two versions of the report have several points of significant difference." },
+    { source: "There are several significant differences between the two versions of the report.", prompt: "The two versions of the report（　　　）（　　　）significant differences.", blanks: "have / several", answer: "The two versions of the report have several significant differences." },
     { source: "There was a narrow passage connecting the two sections of the underground facility.", prompt: "The underground facility（　　　）（　　　）narrow passage connecting its two sections.", blanks: "had / a", answer: "The underground facility had a narrow passage connecting its two sections." }
   ]
 };

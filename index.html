@@ -25,16 +25,49 @@
   <header class="app-header"><div class="header-inner"><p class="app-label">算数・英語ワークシート作成ツール</p><h1>Kazama Worksheet Builder</h1><p>授業ですぐ使える問題・解答・解説を自動で作成します。</p></div></header>
   <main>
     <section class="control-panel no-print">
-      <div class="panel-heading"><div><p class="step-label">STEP 1</p><h2>教材と問題の設定</h2></div><span class="version-label">Version 54</span></div>
+      <div class="panel-heading"><div><p class="step-label">STEP 1</p><h2>教材と問題の設定</h2></div><span class="version-label">Version 55</span></div>
       <div class="form-grid">
         <div class="form-item form-item-wide"><label for="worksheetType">教材</label><select id="worksheetType">
-          <optgroup label="英語"><option value="make-adjective-order">make（目的語＋形容詞）― 整序英作文</option><option value="make-adjective-rewrite">物主構文 make（目的語＋形容詞）― 書き換え</option></optgroup>
-          <optgroup label="算数">
-            <option value="fraction-box-equations">□を求める（分数）― 16問</option><option value="integer-times-box">整数×□＝整数（分数）― 16問</option><option value="integer-equals-fraction">整数＝□／整数 ― 16問</option><option value="integer-equals-integer-over-box">整数＝整数／□ ― 16問</option><option value="fraction-to-division">分数→わり算 ― 16問</option>
-            <option value="multiple-system1">倍数強化ワーク 系統1 ― 整数倍・基本</option><option value="multiple-system2">倍数強化ワーク 系統2 ― 整数倍・単位定着</option><option value="multiple-system3">倍数強化ワーク 系統3 ― Aの①を基準にBをみる</option>
-            <option value="simplify-ratio">比を簡単にする</option><option value="ratio-value">比の値</option><option value="equivalent-ratio">等しい比</option><option value="proportion">比例式</option>
-            <option value="rate-decimal">割合（小数）</option><option value="rate-percent">割合（百分率）</option><option value="compared-amount-decimal">比べる量（小数）</option><option value="base-amount-decimal">もとにする量（小数）</option><option value="rate-three-types-mixed">割合の3用法（混合）</option><option value="rate-word-problems">割合の文章題</option><option value="rate-line-diagram">割合の線分図</option><option value="rate-word-line-equation">割合の文章題→線分図で確認→式</option><option value="rate-word-complete-line-equation">割合の文章題→線分図を完成→式</option><option value="rate-word-draw-line-equation">割合の文章題→線分図をかく→式</option><option value="rate-word-self-equation">割合の文章題→自力で式</option><option value="rate-word-select-info-equation">割合の文章題→必要な情報を選ぶ→式</option><option value="rate-word-two-step">割合の文章題→2段階で解く</option>
-          </optgroup></select><p class="field-note">教材を選ぶと、説明と問題形式が自動で切り替わります。</p></div>
+          <optgroup label="英語｜make・物主構文">
+            <option value="make-adjective-order">make（目的語＋形容詞）｜整序英作文</option>
+            <option value="make-adjective-rewrite">物主構文 make（目的語＋形容詞）｜書き換え</option>
+          </optgroup>
+          <optgroup label="算数｜分数の意味・式">
+            <option value="fraction-box-equations">① □を求める（分数）｜16問</option>
+            <option value="integer-times-box">② 整数×□＝整数（分数）｜16問</option>
+            <option value="integer-equals-fraction">③ 整数＝□／整数｜16問</option>
+            <option value="integer-equals-integer-over-box">④ 整数＝整数／□｜16問</option>
+            <option value="fraction-to-division">⑤ 分数→わり算｜16問</option>
+          </optgroup>
+          <optgroup label="算数｜倍の関係">
+            <option value="multiple-system1">① 倍数強化 系統1｜整数倍・基本</option>
+            <option value="multiple-system2">② 倍数強化 系統2｜整数倍・単位定着</option>
+            <option value="multiple-system3">③ 倍数強化 系統3｜Aの①を基準にBをみる</option>
+          </optgroup>
+          <optgroup label="算数｜比">
+            <option value="simplify-ratio">① 比を簡単にする</option>
+            <option value="ratio-value">② 比の値</option>
+            <option value="equivalent-ratio">③ 等しい比</option>
+            <option value="proportion">④ 比例式</option>
+          </optgroup>
+          <optgroup label="算数｜割合・基本3用法">
+            <option value="rate-decimal">① 割合を求める｜小数</option>
+            <option value="rate-percent">② 割合を求める｜百分率</option>
+            <option value="compared-amount-decimal">③ 比べる量を求める｜小数</option>
+            <option value="base-amount-decimal">④ もとにする量を求める｜小数</option>
+            <option value="rate-three-types-mixed">⑤ 3用法を見分ける｜混合</option>
+          </optgroup>
+          <optgroup label="算数｜割合・文章題ステップ">
+            <option value="rate-word-problems">① 文章題</option>
+            <option value="rate-line-diagram">② 線分図</option>
+            <option value="rate-word-line-equation">③ 文章題→線分図で確認→式</option>
+            <option value="rate-word-complete-line-equation">④ 文章題→線分図を完成→式</option>
+            <option value="rate-word-draw-line-equation">⑤ 文章題→線分図をかく→式</option>
+            <option value="rate-word-self-equation">⑥ 文章題→自力で式</option>
+            <option value="rate-word-select-info-equation">⑦ 必要な情報を選ぶ→式</option>
+            <option value="rate-word-two-step">⑧ 2段階で解く</option>
+          </optgroup>
+        </select><p class="field-note">領域ごとに、学習の流れに沿って並んでいます。</p></div>
         <div class="form-item"><label for="difficulty">難易度</label><select id="difficulty"><option value="basic">基礎</option><option value="standard" selected>標準</option><option value="advanced">発展</option></select></div>
         <div class="form-item"><label for="count">問題数</label><select id="count"></select><p id="countGuide" class="field-note"></p></div>
       </div>

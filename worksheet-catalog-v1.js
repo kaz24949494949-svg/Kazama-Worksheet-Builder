@@ -7,6 +7,19 @@
 
   const groups = [
     {
+      id: "math-bridge",
+      label: "算数｜分数・わり算・比の値 接続",
+      values: [
+        "bridge-fraction-to-division",
+        "bridge-division-to-fraction",
+        "bridge-division-to-fraction-reduce",
+        "bridge-ratio-to-fraction",
+        "bridge-ratio-to-fraction-reduce",
+        "bridge-three-representations-guided",
+        "bridge-three-representations-open"
+      ]
+    },
+    {
       id: "math-fraction",
       label: "算数｜分数の意味・式",
       values: ["fraction-box-equations", "integer-times-box", "integer-equals-fraction", "integer-equals-integer-over-box", "fraction-to-division"]

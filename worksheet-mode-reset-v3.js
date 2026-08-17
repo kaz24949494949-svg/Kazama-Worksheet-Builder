@@ -17,7 +17,8 @@
     "integer-equals-fraction-page",
     "integer-over-box-page",
     "fraction-to-division-page",
-    "multiple-page"
+    "multiple-page",
+    "fraction-ratio-bridge-page"
   ];
 
   const answerClasses = [
@@ -25,7 +26,8 @@
     "integer-equals-fraction-answer-page",
     "integer-over-box-answer-page",
     "fraction-to-division-answer-page",
-    "multiple-answer-page"
+    "multiple-answer-page",
+    "fraction-ratio-bridge-answer-page"
   ];
 
   const questionClasses = [
@@ -34,7 +36,9 @@
     "integer-over-box-questions",
     "fraction-to-division-questions",
     "multiple-questions",
-    "english-questions"
+    "english-questions",
+    "fraction-ratio-bridge-questions",
+    "bridge-long"
   ];
 
   const answerListClasses = [
@@ -43,7 +47,8 @@
     "integer-over-box-answers",
     "fraction-to-division-answers",
     "multiple-answers",
-    "english-answers"
+    "english-answers",
+    "fraction-ratio-bridge-answers"
   ];
 
   function clearWorksheetModes() {
@@ -54,9 +59,6 @@
     if (answerTitle) answerTitle.textContent = "解答・解説";
   }
 
-  // This file is loaded before every worksheet-specific script. Capturing the
-  // change event on document makes the cleanup run before later handlers that
-  // may stop propagation while switching worksheet types.
   document.addEventListener("change", (event) => {
     if (event.target === typeSelect) clearWorksheetModes();
   }, true);

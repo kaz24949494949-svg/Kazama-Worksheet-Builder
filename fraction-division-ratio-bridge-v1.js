@@ -20,7 +20,7 @@
   const answerPage = document.querySelector(".answer-page");
   const answerTitle = answerPage?.querySelector(".worksheet-heading h2");
 
-  if (!typeSelect || !difficultySelect || !countSelect || !createButton || !questions || !answers) return;
+  if (!typeSelect || !difficultySelect || !countSelect || !createButton || !questions || !answers || !problemPage || !answerPage) return;
 
   const TYPES = {
     "bridge-fraction-to-division": {
@@ -42,8 +42,8 @@
     "bridge-division-to-fraction-reduce": {
       step: 3,
       title: "③ わり算 → 分数 → 約分",
-      instruction: "わり算を分数に直したあと、約分しましょう。",
-      description: "表現変換と約分を2段階に分けて処理します。",
+      instruction: "わり算を分数に直し、その分数を約分しましょう。2つの分数を順に書きます。",
+      description: "自分で分数へ変換してから約分する2段階課題です。",
       mode: "division-to-fraction-reduce",
       long: false
     },
@@ -58,10 +58,10 @@
     "bridge-ratio-to-fraction-reduce": {
       step: 5,
       title: "⑤ 比 → 比の値 → 約分",
-      instruction: "比の値を分数にしたあと、約分しましょう。",
-      description: "比→分数→約分の順で処理します。",
+      instruction: "比の値を分数で表し、その分数を約分しましょう。2つの分数を順に書きます。",
+      description: "自分で比を分数へ変換してから約分する2段階課題です。",
       mode: "ratio-to-fraction-reduce",
-      long: false
+      long: true
     },
     "bridge-three-representations-guided": {
       step: 6,
@@ -74,8 +74,8 @@
     "bridge-three-representations-open": {
       step: 7,
       title: "⑦ わり算・分数・比の値を自力でつなぐ",
-      instruction: "わり算と同じ値になる分数と比を書き、3つの表し方をつなぎましょう。",
-      description: "分数だけでなく、同じ値を表す比まで自力で生成します。",
+      instruction: "わり算を分数に直し、わり算に使われている2つの数をそのまま使って比を書きましょう。",
+      description: "新しい数値で、分数と同じ2数の比まで自力で生成して転移を確認します。",
       mode: "three-open",
       long: true
     }
@@ -111,10 +111,18 @@
     [33,45],[34,46],[35,49],[36,48],[38,50],[39,52],[40,56],[42,54],[44,60],[45,63]
   ];
 
+  // 段階⑦は段階⑥と数値を共有しない。記憶ではなく新しい数値への転移を確認する。
+  const THREE_OPEN_TRANSFER = [
+    [3,2],[4,3],[5,7],[6,11],[7,5],[8,13],[9,14],[10,13],[11,7],[12,17],
+    [13,9],[14,19],[15,8],[16,9],[17,10],[18,11],[19,12],[20,13],[21,10],[22,15],
+    [23,14],[24,17],[25,16],[26,17],[27,20],[28,15],[29,18],[30,17],[31,22],[32,21]
+  ];
+
   const isBridgeType = (value = typeSelect.value) => Object.hasOwn(TYPES, value);
 
   function gcd(a, b) {
-    let x = Math.abs(a), y = Math.abs(b);
+    let x = Math.abs(a);
+    let y = Math.abs(b);
     while (y !== 0) [x, y] = [y, x % y];
     return x;
   }
@@ -168,7 +176,9 @@
     if (mode === "division-to-fraction-reduce") return DIVISION_REDUCE;
     if (mode === "ratio-to-fraction") return RATIO_NO_REDUCE;
     if (mode === "ratio-to-fraction-reduce") return RATIO_REDUCE;
-    return RATIO_NO_REDUCE;
+    if (mode === "three-guided") return RATIO_NO_REDUCE;
+    if (mode === "three-open") return THREE_OPEN_TRANSFER;
+    return [];
   }
 
   function configure() {
@@ -195,7 +205,7 @@
     if (answerTitle) answerTitle.textContent = "解答";
     instruction.textContent = def.instruction;
     answerNote.textContent = "同じ数量関係を、わり算・分数・比の値という別の表し方へ変換して確認します。";
-    countGuide.textContent = "10問・20問・30問から選べます。段階⑥・⑦は2列で表示します。";
+    countGuide.textContent = "10問・20問・30問から選べます。段階⑤〜⑦は式が長いため2列で表示します。";
     difficultyTitle.textContent = `接続シリーズ ${def.step}/7`;
     difficultyDescription.textContent = def.description;
     worksheetDifficulty.textContent = `段階：${def.step}/7`;
@@ -214,14 +224,16 @@
     } else if (mode === "division-to-fraction") {
       line.append(text(`${a} ÷ ${b} ＝`), makeFraction(null, null, true));
     } else if (mode === "division-to-fraction-reduce") {
-      line.append(text(`${a} ÷ ${b} ＝`), makeFraction(a, b), text("＝"), makeFraction(null, null, true));
+      // 中間分数を印刷しない。児童が「わり算→分数」と「約分」を両方実行する。
+      line.append(text(`${a} ÷ ${b} ＝`), makeFraction(null, null, true), text("＝"), makeFraction(null, null, true));
     } else if (mode === "ratio-to-fraction") {
       line.append(text(`${a}：${b} の比の値 ＝`), makeFraction(null, null, true));
     } else if (mode === "ratio-to-fraction-reduce") {
-      line.append(text(`${a}：${b} の比の値 ＝`), makeFraction(a, b), text("＝"), makeFraction(null, null, true));
+      // 中間分数を印刷しない。児童が「比→分数」と「約分」を両方実行する。
+      line.append(text(`${a}：${b} の比の値 ＝`), makeFraction(null, null, true), text("＝"), makeFraction(null, null, true));
     } else if (mode === "three-guided") {
       line.append(text(`${a} ÷ ${b} ＝`), makeFraction(null, null, true), text(`＝ ${a}：${b} の比の値`));
-    } else {
+    } else if (mode === "three-open") {
       line.append(text(`${a} ÷ ${b} ＝`), makeFraction(null, null, true), text("＝"), makeRatioBlank(), text("の比の値"));
     }
     return line;
@@ -235,7 +247,8 @@
     if (mode === "ratio-to-fraction") return `${a}/${b}`;
     if (mode === "ratio-to-fraction-reduce") return `${a}/${b}＝${ra}/${rb}`;
     if (mode === "three-guided") return `${a}÷${b}＝${a}/${b}＝${a}：${b}の比の値`;
-    return `${a}÷${b}＝${a}/${b}＝${a}：${b}の比の値`;
+    if (mode === "three-open") return `${a}÷${b}＝${a}/${b}＝${a}：${b}の比の値`;
+    return "";
   }
 
   function makeWorksheet() {
@@ -243,13 +256,15 @@
     if (!def) return;
     const count = Number(countSelect.value);
     const source = dataFor(def.mode);
-    if (![10,20,30].includes(count) || source.length < count) {
+
+    if (![10, 20, 30].includes(count) || source.length < count) {
       statusMessage.textContent = "指定した問題数を作成できません。";
       return;
     }
 
     const qf = document.createDocumentFragment();
     const af = document.createDocumentFragment();
+
     source.slice(0, count).forEach(([a, b], index) => {
       const item = document.createElement("div");
       item.className = "bridge-item";
@@ -281,7 +296,7 @@
     difficultySelect.value = "basic";
   }, true);
 
-  countSelect.addEventListener("change", (event) => {
+  countSelect.addEventListener("change", () => {
     if (!isBridgeType()) return;
     worksheetCount.textContent = `問題数：${countSelect.value}問`;
   }, true);

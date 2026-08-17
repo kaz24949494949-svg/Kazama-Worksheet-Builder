@@ -1,0 +1,29 @@
+.proportion-question-line{
+    display:flex;
+    align-items:center;
+    gap:.18em;
+    white-space:nowrap;
+}
+
+.proportion-box{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.45em;
+    height:1.45em;
+    margin:0 .10em;
+    border:2px solid currentColor;
+    vertical-align:middle;
+    line-height:1;
+    font-size:1.10em;
+    font-weight:700;
+}
+
+@media print{
+    .proportion-box{
+        width:1.55em;
+        height:1.55em;
+        border-width:2.2px;
+        font-size:1.15em;
+    }
+}

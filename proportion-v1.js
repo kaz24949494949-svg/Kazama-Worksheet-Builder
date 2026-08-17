@@ -86,6 +86,28 @@ function proportionText(question, showAnswer = false) {
   return `${values[0]}：${values[1]} ＝ ${values[2]}：${values[3]}`;
 }
 
+function appendProportionProblem(fragment, question, number) {
+  const problem = document.createElement("p");
+  problem.className = "proportion-question-line";
+  problem.appendChild(document.createTextNode(`${number}. `));
+
+  question.values.forEach((value, index) => {
+    if (index === question.missingIndex) {
+      const box = document.createElement("span");
+      box.className = "proportion-box";
+      box.setAttribute("aria-label", "答えを書く欄");
+      problem.appendChild(box);
+    } else {
+      problem.appendChild(document.createTextNode(String(value)));
+    }
+
+    if (index === 0 || index === 2) problem.appendChild(document.createTextNode("："));
+    if (index === 1) problem.appendChild(document.createTextNode(" ＝ "));
+  });
+
+  fragment.appendChild(problem);
+}
+
 function buildProportionExplanation(question) {
   const [a, b, c, d] = question.values;
   const answer = question.answer;
@@ -135,10 +157,7 @@ function makeProportionWorksheet() {
 
   selected.forEach((question, index) => {
     const number = index + 1;
-
-    const problem = document.createElement("p");
-    problem.textContent = `${number}. ${proportionText(question)}`;
-    questionFragment.appendChild(problem);
+    appendProportionProblem(questionFragment, question, number);
 
     const answer = document.createElement("p");
     const main = document.createElement("b");

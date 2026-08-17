@@ -61,7 +61,7 @@
       instruction: "比の値を分数で表し、その分数を約分しましょう。2つの分数を順に書きます。",
       description: "自分で比を分数へ変換してから約分する2段階課題です。",
       mode: "ratio-to-fraction-reduce",
-      long: false
+      long: true
     },
     "bridge-three-representations-guided": {
       step: 6,
@@ -205,7 +205,7 @@
     if (answerTitle) answerTitle.textContent = "解答";
     instruction.textContent = def.instruction;
     answerNote.textContent = "同じ数量関係を、わり算・分数・比の値という別の表し方へ変換して確認します。";
-    countGuide.textContent = "10問・20問・30問から選べます。段階⑥・⑦は2列で表示します。";
+    countGuide.textContent = "10問・20問・30問から選べます。段階⑤〜⑦は式が長いため2列で表示します。";
     difficultyTitle.textContent = `接続シリーズ ${def.step}/7`;
     difficultyDescription.textContent = def.description;
     worksheetDifficulty.textContent = `段階：${def.step}/7`;

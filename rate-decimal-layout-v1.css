@@ -1,0 +1,90 @@
+/* 割合（小数）専用レイアウト */
+.rate-decimal-questions{
+  columns:2;
+  column-gap:38px;
+}
+
+.rate-decimal-question{
+  break-inside:avoid;
+  display:grid;
+  grid-template-columns:2.2em 1fr;
+  column-gap:8px;
+  align-items:start;
+  min-height:96px;
+  margin:0 0 16px;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.55;
+}
+
+.rate-decimal-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:1.7em;
+  height:1.7em;
+  border:1.8px solid currentColor;
+  border-radius:50%;
+  font-size:.78em;
+  line-height:1;
+  margin-top:.05em;
+}
+
+.rate-decimal-body{
+  min-width:0;
+}
+
+.rate-decimal-data{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  column-gap:8px;
+  row-gap:2px;
+  align-items:baseline;
+}
+
+.rate-decimal-label{
+  white-space:nowrap;
+}
+
+.rate-decimal-value{
+  font-variant-numeric:tabular-nums;
+}
+
+.rate-decimal-answer-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:5px;
+}
+
+.rate-decimal-answer-box{
+  display:inline-block;
+  width:2.25em;
+  height:1.65em;
+  border:2px solid #222;
+  background:#fff;
+  vertical-align:middle;
+}
+
+@media print{
+  .rate-decimal-questions{
+    column-gap:34px !important;
+  }
+  .rate-decimal-question{
+    min-height:92px;
+    margin-bottom:12px;
+    font-size:17px;
+    line-height:1.45;
+  }
+  .rate-decimal-answer-box{
+    width:2.35em;
+    height:1.72em;
+    border-width:2.2px;
+  }
+}
+
+@media (max-width:650px){
+  .rate-decimal-questions{
+    columns:1;
+  }
+}

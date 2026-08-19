@@ -1,6 +1,14 @@
 "use strict";
 
 (() => {
+  if (!document.querySelector('link[data-multiple-rate-bridge-print]')) {
+    const printFix = document.createElement("link");
+    printFix.rel = "stylesheet";
+    printFix.href = "multiple-rate-bridge-print-v1.css";
+    printFix.dataset.multipleRateBridgePrint = "v1";
+    document.head.appendChild(printFix);
+  }
+
   const typeSelect = document.getElementById("worksheetType");
   const categorySelect = document.getElementById("worksheetCategory");
   if (!typeSelect || !categorySelect) return;

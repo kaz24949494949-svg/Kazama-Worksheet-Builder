@@ -30,6 +30,24 @@
       values: ["multiple-system1", "multiple-system2", "multiple-system3"]
     },
     {
+      id: "math-multiple-rate-bridge",
+      label: "算数｜倍数→割合 接続",
+      values: [
+        "multiple-rate-bridge-01",
+        "multiple-rate-bridge-02",
+        "multiple-rate-bridge-03",
+        "multiple-rate-bridge-04",
+        "multiple-rate-bridge-05",
+        "multiple-rate-bridge-06",
+        "multiple-rate-bridge-07",
+        "multiple-rate-bridge-08",
+        "multiple-rate-bridge-09",
+        "multiple-rate-bridge-10",
+        "multiple-rate-bridge-11",
+        "multiple-rate-bridge-12"
+      ]
+    },
+    {
       id: "math-ratio",
       label: "算数｜比",
       values: ["simplify-ratio", "ratio-value", "equivalent-ratio", "proportion"]

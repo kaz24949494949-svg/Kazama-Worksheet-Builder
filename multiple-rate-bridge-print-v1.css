@@ -1,0 +1,133 @@
+/* 接続編①〜⑫専用：A4印刷を「問題1枚＋解答1枚」に固定する */
+@media print {
+  .problem-page.multiple-rate-bridge-page,
+  .answer-page.multiple-rate-bridge-page {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .multiple-rate-bridge-page .worksheet-heading {
+    padding-bottom: 5px !important;
+    gap: 8px !important;
+  }
+
+  .multiple-rate-bridge-page .worksheet-heading h2 {
+    font-size: 15.5px !important;
+    line-height: 1.18 !important;
+    white-space: nowrap !important;
+  }
+
+  .multiple-rate-bridge-page .worksheet-brand {
+    margin: 0 !important;
+    font-size: 8px !important;
+    line-height: 1.1 !important;
+  }
+
+  .multiple-rate-bridge-page .worksheet-meta {
+    margin-top: 3px !important;
+    gap: 10px !important;
+    font-size: 8.5px !important;
+    line-height: 1.15 !important;
+  }
+
+  .multiple-rate-bridge-page .instruction {
+    margin: 5px 0 !important;
+    padding: 4px 8px !important;
+    border-left-width: 3px !important;
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+  }
+
+  #questions.multiple-rate-bridge-list,
+  #answers.multiple-rate-bridge-answers {
+    columns: auto !important;
+    display: grid !important;
+    gap: 0 !important;
+    margin-top: 3px !important;
+    padding: 5px 9px !important;
+  }
+
+  #questions.multiple-rate-bridge-list {
+    height: auto !important;
+  }
+
+  .multiple-rate-bridge-item {
+    padding: 2px 2px 3px !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .multiple-rate-bridge-qline,
+  .multiple-rate-bridge-workline {
+    font-size: 9px !important;
+    line-height: 1.22 !important;
+    gap: 5px !important;
+  }
+
+  .multiple-rate-bridge-qline {
+    margin-bottom: 1px !important;
+  }
+
+  .multiple-rate-bridge-workline {
+    padding-left: 25px !important;
+    min-height: 21px !important;
+  }
+
+  .multiple-rate-bridge-num {
+    min-width: 21px !important;
+  }
+
+  .multiple-rate-bridge-box {
+    min-width: 45px !important;
+    height: 22px !important;
+    padding: 0 5px !important;
+    line-height: 20px !important;
+  }
+
+  .multiple-rate-bridge-wide {
+    min-width: 135px !important;
+  }
+
+  .multiple-rate-bridge-long {
+    min-width: 190px !important;
+  }
+
+  .multiple-rate-bridge-role {
+    grid-template-columns: auto 1fr auto 1fr !important;
+    gap: 3px 6px !important;
+    padding-left: 25px !important;
+    font-size: 8.5px !important;
+    line-height: 1.18 !important;
+  }
+
+  .multiple-rate-bridge-answer {
+    margin: 0 !important;
+    padding: 3px 0 !important;
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .answer-page.multiple-rate-bridge-page .answer-note {
+    margin: 5px 0 !important;
+    padding: 4px 8px !important;
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Chrome印刷で余分な空白ページを発生させない */
+  .problem-page.multiple-rate-bridge-page {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .answer-page.multiple-rate-bridge-page {
+    page-break-before: auto !important;
+    break-before: auto !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+}

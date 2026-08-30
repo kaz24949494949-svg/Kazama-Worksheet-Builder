@@ -1,5 +1,43 @@
 "use strict";
 
+(() => {
+  const typeSelect = document.getElementById("worksheetType");
+  if (typeSelect && !typeSelect.querySelector('option[value="word-solution-rate"]')) {
+    const group = document.createElement("optgroup");
+    group.label = "算数｜文章題解決";
+    [
+      ["word-solution-rate", "① 文章題解決｜割合"],
+      ["word-solution-ratio", "② 文章題解決｜比"],
+      ["word-solution-speed", "③ 文章題解決｜速さ"]
+    ].forEach(([value, text]) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = text;
+      group.appendChild(option);
+    });
+    typeSelect.appendChild(group);
+  }
+
+  if (!document.querySelector('link[data-word-problem-solution]')) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "word-problem-solution-v1.css";
+    link.dataset.wordProblemSolution = "v1";
+    document.head.appendChild(link);
+  }
+
+  if (!document.querySelector('script[data-word-problem-solution]')) {
+    const script = document.createElement("script");
+    script.src = "word-problem-solution-v1.js";
+    script.async = false;
+    script.dataset.wordProblemSolution = "v1";
+    document.body.appendChild(script);
+  }
+
+  const version = document.querySelector(".version-label");
+  if (version) version.textContent = "Version 60";
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   const formula = "もとにする量 × 割合 ＝ 比べる量";
   const noRule = "割合の表現『もとにする量 の 割合』では、『の』は『×』を表します。";

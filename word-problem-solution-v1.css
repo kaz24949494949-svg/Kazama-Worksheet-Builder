@@ -1,0 +1,26 @@
+@media screen, print {
+body.word-problem-solution-mode .wps-host{padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;max-width:none!important}
+body.word-problem-solution-mode .wps-host>.worksheet-heading,
+body.word-problem-solution-mode .wps-host>.worksheet-meta,
+body.word-problem-solution-mode .wps-host>#instruction{display:none!important}
+body.word-problem-solution-mode #questions{margin:0!important}
+.wps-sheet{width:210mm;min-height:297mm;margin:0 auto 8mm;padding:9mm 11mm 8mm;background:#fff;color:#111;font-family:"Noto Sans JP","Yu Gothic","Meiryo",sans-serif;box-sizing:border-box;position:relative}
+.wps-sheet header{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #222;padding:0 1mm 2.5mm}
+.wps-sheet header h3{font-size:23px;margin:0;font-weight:900}.wps-sheet header>b{background:#222;color:#fff;border-radius:3mm;padding:2mm 5mm;font-size:14px}
+.wps-meta{display:flex;justify-content:space-between;padding:2mm 1mm;border-bottom:1px dashed #777;font-size:9.5px;font-weight:700}
+.wps-read{padding:2.5mm 1mm}.wps-read strong{display:block;font-size:11px}.wps-read small{display:block;font-size:8px;color:#555;margin-top:1mm}
+.wps-box{border:1.5px solid #222;border-radius:3mm;margin-top:3mm;position:relative;padding:10mm 6mm 4mm}.wps-box>b{position:absolute;top:-1.5px;left:-1.5px;background:#222;color:#fff;border-radius:3mm 3mm 3mm 0;padding:1.5mm 4.5mm;font-size:11px}
+.wps-problem{height:43mm}.wps-problem p{font-size:14px;line-height:1.85;font-weight:600;margin:0}
+.wps-info{height:44mm;padding-top:9.5mm}.wps-field{display:flex;align-items:flex-end;height:8mm;font-size:11px;font-weight:700}.wps-field span{width:44mm}.wps-field i{flex:1;height:5.5mm;border-bottom:1px solid #333}
+.wps-kazama{position:absolute;left:6mm;right:6mm;bottom:2mm;border:1px solid #bbb;background:#f6f6f6;padding:1.2mm 2mm;font-size:7px;line-height:1.35}.wps-kazama b,.wps-kazama span{display:block}
+.wps-diagram{height:82mm;padding:9.5mm 5mm 4mm}.wps-diagram>div{height:67mm;border:1px solid #bbb;padding:2mm;overflow:hidden}.wps-diagram svg{width:100%;height:100%;display:block;font-family:"Noto Sans JP","Yu Gothic","Meiryo",sans-serif}
+.wps-calc{height:45mm;padding:9.5mm 6mm 3mm}.wps-calc i{display:block;height:7.9mm;border-bottom:1px solid #444}
+.wps-answerblank{margin-top:3mm;height:13mm;display:flex;border:1.7px solid #222;border-radius:3mm;overflow:hidden;align-items:center}.wps-answerblank b{width:26mm;height:100%;display:flex;align-items:center;justify-content:center;background:#222;color:#fff}.wps-answerblank i{flex:1;height:7mm;border-bottom:1px solid #333;margin:0 5mm}
+.wps-answer-item{display:grid;grid-template-columns:24px 100px 1fr;gap:8px;align-items:baseline;margin:6px 0}.wps-answer-item span{font-weight:700}.wps-answer-item small{font-size:10px}
+}
+@media print{
+body.word-problem-solution-mode .problem-page{break-after:auto!important;page-break-after:auto!important}
+body.word-problem-solution-mode .wps-sheet{margin:0!important;break-after:page;page-break-after:always}
+body.word-problem-solution-mode .wps-sheet:last-child{break-after:auto;page-break-after:auto}
+body.word-problem-solution-mode .answer-page{break-before:page!important;page-break-before:always!important}
+}

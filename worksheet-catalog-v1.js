@@ -71,6 +71,11 @@
       values: ["rate-word-problems", "rate-line-diagram", "rate-word-line-equation", "rate-word-complete-line-equation", "rate-word-draw-line-equation", "rate-word-self-equation", "rate-word-select-info-equation", "rate-word-two-step"]
     },
     {
+      id: "math-word-solution",
+      label: "算数｜文章題解決",
+      values: ["word-solution-rate", "word-solution-ratio", "word-solution-speed"]
+    },
+    {
       id: "english-make",
       label: "英語｜make",
       test: (value) => ["make-adjective-order", "make-adjective-rewrite", "make-bare-infinitive-order"].includes(value)

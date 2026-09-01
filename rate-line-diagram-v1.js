@@ -109,6 +109,7 @@ function makeRateLineDiagramWorksheet(){
   const selected=selectRateLineQuestions(buildRateLinePool(settings),count);
   if(selected.length<count){ statusMessage.textContent="この設定では重複なしで指定した問題数を作成できません。"; return; }
 
+  document.body.classList.add("rate-line-diagram-mode");
   const questionFragment=document.createDocumentFragment(), answerFragment=document.createDocumentFragment();
   selected.forEach((question,index)=>{
     const number=index+1, wrapper=document.createElement("div"), prompt=document.createElement("p");
@@ -122,9 +123,13 @@ function makeRateLineDiagramWorksheet(){
 
   questionsElement.replaceChildren(questionFragment); answersElement.replaceChildren(answerFragment);
   worksheetDifficulty.textContent=`難易度：${settings.label}`; worksheetCount.textContent=`問題数：${count}問`;
-  statusMessage.textContent=`割合の線分図・${settings.label}を${count}問、重複なしで作成しました。`;
+  statusMessage.textContent=`割合の線分図・${settings.label}を${count}問、1列の大判表示で作成しました。`;
   document.querySelector(".problem-page").scrollIntoView({behavior:"smooth",block:"start"});
 }
+
+worksheetTypeSelect.addEventListener("change",()=>{
+  if(worksheetTypeSelect.value!=="rate-line-diagram") document.body.classList.remove("rate-line-diagram-mode");
+});
 
 createButton.addEventListener("click",(event)=>{
   if(worksheetTypeSelect.value!=="rate-line-diagram") return;

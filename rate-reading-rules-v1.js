@@ -26,6 +26,14 @@
     document.head.appendChild(link);
   }
 
+  if (!document.querySelector('link[data-word-problem-thinking-rate]')) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "word-problem-thinking-rate-v1.css";
+    link.dataset.wordProblemThinkingRate = "v1";
+    document.head.appendChild(link);
+  }
+
   if (!document.querySelector('script[data-word-problem-solution]')) {
     const script = document.createElement("script");
     script.src = "word-problem-solution-v1.js";
@@ -34,8 +42,16 @@
     document.body.appendChild(script);
   }
 
+  if (!document.querySelector('script[data-word-problem-thinking-rate]')) {
+    const script = document.createElement("script");
+    script.src = "word-problem-thinking-rate-v1.js";
+    script.async = false;
+    script.dataset.wordProblemThinkingRate = "v1";
+    document.body.appendChild(script);
+  }
+
   const version = document.querySelector(".version-label");
-  if (version) version.textContent = "Version 60";
+  if (version) version.textContent = "Version 61";
 })();
 
 document.addEventListener("DOMContentLoaded", () => {

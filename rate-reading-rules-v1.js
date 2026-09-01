@@ -41,6 +41,7 @@
   ensureScript("word-problem-solution", "word-problem-solution-v1.js");
   ensureScript("word-problem-rate-fixed-db", "word-problem-rate-fixed-db-v1.js");
   ensureScript("word-problem-thinking-rate-v2", "word-problem-thinking-rate-v2.js");
+  ensureScript("word-problem-thinking-rate-v2-fixes", "word-problem-thinking-rate-v2-fixes.js");
 
   const version = document.querySelector(".version-label");
   if (version) version.textContent = "Version 62";

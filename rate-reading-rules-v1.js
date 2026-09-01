@@ -6,9 +6,10 @@
     const group = document.createElement("optgroup");
     group.label = "算数｜文章題解決";
     [
-      ["word-solution-rate", "① 文章題解決｜割合"],
-      ["word-solution-ratio", "② 文章題解決｜比"],
-      ["word-solution-speed", "③ 文章題解決｜速さ"]
+      ["word-solution-rate", "① 文章題解決｜割合［固定30問］"],
+      ["word-solution-rate-auto", "② 文章題解決｜割合［類題自動生成］"],
+      ["word-solution-ratio", "③ 文章題解決｜比"],
+      ["word-solution-speed", "④ 文章題解決｜速さ"]
     ].forEach(([value, text]) => {
       const option = document.createElement("option");
       option.value = value;
@@ -18,40 +19,31 @@
     typeSelect.appendChild(group);
   }
 
-  if (!document.querySelector('link[data-word-problem-solution]')) {
+  const ensureLink = (key, href) => {
+    if (document.querySelector(`link[data-${key}]`)) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "word-problem-solution-v1.css";
-    link.dataset.wordProblemSolution = "v1";
+    link.href = href;
+    link.dataset[key.replace(/-([a-z])/g,(_,c)=>c.toUpperCase())] = "v2";
     document.head.appendChild(link);
-  }
+  };
+  ensureLink("word-problem-solution", "word-problem-solution-v1.css");
+  ensureLink("word-problem-thinking-rate-v2", "word-problem-thinking-rate-v2.css");
 
-  if (!document.querySelector('link[data-word-problem-thinking-rate]')) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "word-problem-thinking-rate-v1.css";
-    link.dataset.wordProblemThinkingRate = "v1";
-    document.head.appendChild(link);
-  }
-
-  if (!document.querySelector('script[data-word-problem-solution]')) {
+  const ensureScript = (key, src) => {
+    if (document.querySelector(`script[data-${key}]`)) return;
     const script = document.createElement("script");
-    script.src = "word-problem-solution-v1.js";
+    script.src = src;
     script.async = false;
-    script.dataset.wordProblemSolution = "v1";
+    script.dataset[key.replace(/-([a-z])/g,(_,c)=>c.toUpperCase())] = "v2";
     document.body.appendChild(script);
-  }
-
-  if (!document.querySelector('script[data-word-problem-thinking-rate]')) {
-    const script = document.createElement("script");
-    script.src = "word-problem-thinking-rate-v1.js";
-    script.async = false;
-    script.dataset.wordProblemThinkingRate = "v1";
-    document.body.appendChild(script);
-  }
+  };
+  ensureScript("word-problem-solution", "word-problem-solution-v1.js");
+  ensureScript("word-problem-rate-fixed-db", "word-problem-rate-fixed-db-v1.js");
+  ensureScript("word-problem-thinking-rate-v2", "word-problem-thinking-rate-v2.js");
 
   const version = document.querySelector(".version-label");
-  if (version) version.textContent = "Version 61";
+  if (version) version.textContent = "Version 62";
 })();
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -73,7 +73,7 @@
     {
       id: "math-word-solution",
       label: "算数｜文章題解決",
-      values: ["word-solution-rate", "word-solution-ratio", "word-solution-speed"]
+      values: ["word-solution-rate", "word-solution-rate-auto", "word-solution-ratio", "word-solution-speed"]
     },
     {
       id: "english-make",

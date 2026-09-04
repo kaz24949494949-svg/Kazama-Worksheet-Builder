@@ -24,27 +24,27 @@
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = href;
-    link.dataset[key.replace(/-([a-z])/g,(_,c)=>c.toUpperCase())] = "v2";
+    link.dataset[key.replace(/-([a-z])/g,(_,c)=>c.toUpperCase())] = "v64";
     document.head.appendChild(link);
   };
-  ensureLink("word-problem-solution", "word-problem-solution-v1.css");
-  ensureLink("word-problem-thinking-rate-v2", "word-problem-thinking-rate-v2.css");
+  ensureLink("word-problem-solution", "word-problem-solution-v1.css?v=64");
+  ensureLink("word-problem-thinking-rate-v2", "word-problem-thinking-rate-v2.css?v=64");
 
   const ensureScript = (key, src) => {
     if (document.querySelector(`script[data-${key}]`)) return;
     const script = document.createElement("script");
     script.src = src;
     script.async = false;
-    script.dataset[key.replace(/-([a-z])/g,(_,c)=>c.toUpperCase())] = "v2";
+    script.dataset[key.replace(/-([a-z])/g,(_,c)=>c.toUpperCase())] = "v64";
     document.body.appendChild(script);
   };
-  ensureScript("word-problem-solution", "word-problem-solution-v1.js");
-  ensureScript("word-problem-rate-fixed-db", "word-problem-rate-fixed-db-v1.js");
-  ensureScript("word-problem-thinking-rate-v2", "word-problem-thinking-rate-v2.js");
-  ensureScript("word-problem-thinking-rate-v2-fixes", "word-problem-thinking-rate-v2-fixes.js");
+  ensureScript("word-problem-solution", "word-problem-solution-v1.js?v=64");
+  ensureScript("word-problem-rate-fixed-db", "word-problem-rate-fixed-db-v1.js?v=64");
+  ensureScript("word-problem-thinking-rate-v2", "word-problem-thinking-rate-v2.js?v=64");
+  ensureScript("word-problem-thinking-rate-v2-fixes", "word-problem-thinking-rate-v2-fixes.js?v=64");
 
   const version = document.querySelector(".version-label");
-  if (version) version.textContent = "Version 62";
+  if (version) version.textContent = "Version 64";
 })();
 
 document.addEventListener("DOMContentLoaded", () => {

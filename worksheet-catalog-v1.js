@@ -78,7 +78,13 @@
     {
       id: "english-make",
       label: "英語｜make",
-      test: (value) => ["make-adjective-order", "make-adjective-rewrite", "make-bare-infinitive-order"].includes(value)
+      test: (value) => [
+        "make-adjective-order",
+        "make-adjective-rewrite",
+        "make-past-participle-order",
+        "make-oneself-past-participle-order",
+        "make-bare-infinitive-order"
+      ].includes(value)
     },
     {
       id: "english-keep",

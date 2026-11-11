@@ -22,7 +22,7 @@ const memorization96OrderQuestions = {
     { ja: "そのかばんは重すぎてメアリーには運べない。", answer: "The bag is too heavy for Mary to carry.", words: ["the", "bag", "is", "too", "heavy", "for", "Mary", "to", "carry"] },
     { ja: "そのかばんは軽いのでメアリーでも運べる。", answer: "The bag is light enough for Mary to carry.", words: ["the", "bag", "is", "light", "enough", "for", "Mary", "to", "carry"] },
     { ja: "そんな所で彼に会うとは思ってもみなかった。", answer: "He was the last man I expected to meet there.", words: ["he", "was", "the", "last", "man", "I", "expected", "to", "meet", "there"] },
-    { ja: "私はその列車に間に合うように早く起きた。", answer: "I got up early so that I might catch the train.", words: ["I", "got", "up", "early", "so", "that", "I", "might", "catch", "the", "train"] },
+    { ja: "私は彼が6時までに来ることを確信している。", answer: "I am sure of his coming by six o'clock.", words: ["I", "am", "sure", "of", "his", "coming", "by", "six", "o'clock"] },
     { ja: "彼を待つより仕方がない。", answer: "There is nothing for it but to wait for him.", words: ["there", "is", "nothing", "for", "it", "but", "to", "wait", "for", "him"] },
     { ja: "彼はどうしてよいかわからず途方にくれた。", answer: "He was at a loss what to do.", words: ["he", "was", "at", "a", "loss", "what", "to", "do"] },
     { ja: "私は自分の名前が呼ばれるのを聞いた。", answer: "I heard my name called.", words: ["I", "heard", "my", "name", "called"] },

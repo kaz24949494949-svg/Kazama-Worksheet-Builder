@@ -76,6 +76,11 @@
       values: ["word-solution-rate", "word-solution-rate-auto", "word-solution-ratio", "word-solution-speed"]
     },
     {
+      id: "english-memorization",
+      label: "英語｜暗記用例文",
+      values: ["memorization-96-order"]
+    },
+    {
       id: "english-make",
       label: "英語｜make",
       test: (value) => [
